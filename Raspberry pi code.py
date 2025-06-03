@@ -17,6 +17,8 @@ def interrupt_listener():
         if ser.in_waiting > 0:
             line = ser.readline().decode('utf-8').rstrip()
             print(f"Message from Arduino: {line}")  # Display message immediately
+        # Prevent the thread from using 100% CPU when no data is available
+        time.sleep(0.1)
 
 
 def motor_control():
