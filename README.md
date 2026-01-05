@@ -1,9 +1,15 @@
 # Microver
 
-Microver is a hardware/firmware project with PCB manufacturing outputs, Arduino/Raspberry Pi code, and brand assets. This repo is organized so current work lives in the 2025 folder and older experiments live in the archive.
+Microver is a hardware/firmware project with PCB manufacturing outputs, Arduino/Raspberry Pi code, and brand assets. The repo is organized into firmware, hardware, assets, and archive folders for quick navigation.
 
 ## Repository layout
 
+- `firmware/` - Current firmware work and notes.
+- `hardware/` - PCB manufacturing outputs.
+- `assets/` - Logo assets (current and legacy).
+- `archive/` - Older code and reference materials.
+
+Key paths:
 - `firmware/2025/` - Current Arduino code and notes for the 2025 build.
 - `firmware/2025/knowledge base/` - Datasheets and build notes for drivers, lidar, and PCB work.
 - `hardware/pcb-manufacturing-v1/` - Gerber and drill files for the v1 board.
