@@ -1,0 +1,21 @@
+RPLIDAR C1 Notes
+-----------------
+General
+- 360° 2D LiDAR (C1M1-R2) with 0.05–12 m range (white target, 70% reflectivity) and ~0.72° angular resolution at 10 Hz scan rate (5000 samples/s).
+- Uses TOF ranging, clockwise rotation at ~600 rpm; outputs distance+angle per sample plus reflectivity/start flag bits.
+- Class 1 laser (905 nm, ~20 W peak pulses) with contactless power/signal transmission; rated for long-life continuous scanning.
+Power + Electrical
+- Requires single 5 V supply for scanner + motor (4.8–5.2 V recommended); startup current ~800 mA, steady ~230–260 mA @10 Hz.
+- Supply ripple should be <150 mV to avoid noise and radiation issues; keep leads short and add local bulk capacitance if sharing a rail.
+- Interface connector: XH2.54-5P (Red=VCC, Yellow=TX out, Green=RX in, Black=GND). Motor speed is controlled via protocol commands (no separate motor supply).
+Communication
+- Serial interface: 3.3 V TTL UART at 460800 bps, 8N1.
+- Output logic high ≈3.3 V, so logic-level translation needed if MCU inputs are not 3.3 V tolerant. Arduino Nano Every inputs tolerate up to 5 V, so direct connect is OK; but Arduino TX must not exceed 3.3 V when driving lidar RX (use level shifting or voltage divider).
+- Protocol compatible with prior RPLIDAR A/S series; SDK available on GitHub (https://github.com/Slamtec/rplidar_sdk).
+Mechanical / Integration
+- Weight ~110 g; operating -10°C to 40°C.
+- Provide clear optical window; avoid blocking scan path.
+- Mount using M2.5 screws ≤4 mm depth.
+Testing on Arduino Every
+- Possible to test LiDAR communication using Arduino Every via UART (Serial1/SoftwareSerial) provided: (1) 5 V supply capable of ≥1 A surge, (2) 3.3 V-compatible TX toward LiDAR (use resistor divider or MOSFET level shifter), (3) firmware implementing the Slamtec protocol or using available Arduino-friendly drivers.
+- For final rover integration, LiDAR data should be streamed to Raspberry Pi 5 for higher-level processing; Arduino-only tests should focus on verifying power rail stability and UART link quality.
