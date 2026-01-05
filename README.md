@@ -4,18 +4,18 @@ Microver is a hardware/firmware project with PCB manufacturing outputs, Arduino/
 
 ## Repository layout
 
-- `Code 2025/` - Current Arduino code and notes for the 2025 build.
-- `Code 2025/knowledge base/` - Datasheets and build notes for drivers, lidar, and PCB work.
-- `Microver PCB manufactor v1/` - Gerber and drill files for the v1 board.
-- `Microver manufacture Rev B/` - Gerber and drill files for Rev B.
-- `code archive-2024/` - Older Arduino/Raspberry Pi code and documentation.
-- `Microver logo files/` and `Microver old logo files/` - Current and legacy logo assets.
+- `firmware/2025/` - Current Arduino code and notes for the 2025 build.
+- `firmware/2025/knowledge base/` - Datasheets and build notes for drivers, lidar, and PCB work.
+- `hardware/pcb-manufacturing-v1/` - Gerber and drill files for the v1 board.
+- `hardware/pcb-manufacturing-rev-b/` - Gerber and drill files for Rev B.
+- `archive/2024-code/` - Older Arduino/Raspberry Pi code and documentation.
+- `assets/logos/` and `assets/logos-legacy/` - Current and legacy logo assets.
 
 ## Getting started
 
 1. If you are fabricating a board, use the Gerber and drill files in the appropriate manufacturing folder.
-2. If you are working on firmware, start in `Code 2025/` and review the notes in `Code 2025/knowledge base/` for required hardware and driver details.
-3. For older experiments and reference code, check `code archive-2024/`.
+2. If you are working on firmware, start in `firmware/2025/` and review the notes in `firmware/2025/knowledge base/` for required hardware and driver details.
+3. For older experiments and reference code, check `archive/2024-code/`.
 
 ## Notes
 
