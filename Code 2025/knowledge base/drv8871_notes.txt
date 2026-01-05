@@ -1,0 +1,20 @@
+Adafruit DRV8871 Motor Driver Notes
+-----------------------------------
+- Brushed DC H-bridge rated for 6.5V–45V motor supply; logic pins tolerate up to 5.5V, so Nano Every pins can drive IN1/IN2 directly.
+- Typical Rds(on) (high + low) is ~565 mΩ; driver can source/sink up to ~3.6 A peak before current limiting and thermal shutdown intervene.
+- Current limit is set by resistor Rlim. Board ships with ~30 kΩ installed, yielding roughly a 2 A limit; replace or piggyback different resistors to change the limit.
+- IN1 drives OUT1 and IN2 drives OUT2. Apply complementary PWM or static logic combinations to control the H-bridge:
+  * IN1=LOW, PWM on IN2 => forward drive (OUT1 low, OUT2 PWM high).
+  * IN2=LOW, PWM on IN1 => reverse drive.
+  * IN1=IN2=LOW => motor brake (both low).
+  * IN1=IN2=HIGH => brake/high-side short (avoid unless needed).
+- PWM up to ~200 kHz is supported, but lower frequencies (e.g., 20 kHz) are more efficient and easier on the microcontroller timers.
+- Driver integrates UVLO, overcurrent protection, and thermal shutdown, so faults automatically disable outputs until safe.
+- Logic power is derived internally from VMotor; no separate 5V supply required other than the control logic source.
+- Use thick wires and solid solder joints on VMotor, GND, and OUT terminals to minimize wiring losses.
+- Board ships with screw terminals and header strips; ensure terminal openings face outward before soldering.
+Useful for firmware
+-------------------
+- Treat driver as two GPIO/PWM pins per motor. For six motors on Arduino Every 1, map D5/D6 and D9/D10 accordingly and reuse the same control macros/functions.
+- Implement per-motor current-limit awareness: expect ~2 A cap unless hardware resistor changed.
+- Provide initialization that sets both inputs LOW before enabling PWM to avoid startup kicks.

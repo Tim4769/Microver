@@ -1,0 +1,10 @@
+- Pins D5 and D6 connect to three motor drivers that all operate identically.
+- Pins D9 and D10 connect to a different set of three motor drivers that also operate identically.
+- Encoder 1 uses pins D16 and D17.
+- Encoder 2 uses pins D14 and D15.
+- Encoder 3 uses pins D20 and D21.
+- Encoder 4 uses pins D18 and D19.
+- Rover has three wheels per side; turning by running sides opposite directions.
+- Only two motors per side have encoders, hence 4 encoders for 6 motor drivers.
+- Arduino Every 1 handles the six motor drivers and four encoders described above.
+- Arduino Every 2 controls four servo motors: D10 -> Servo 4, D9 -> Servo 3, D6 -> Servo 2, D5 -> Servo 1.
