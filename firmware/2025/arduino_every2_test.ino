@@ -62,8 +62,6 @@ void setup() {
   while (!Serial) {
     ;
   }
-  Serial.println(F("Arduino Every 2 servo test starting..."));
-  Serial.println(F("Ensure 5V servo supply is active before connecting servos."));
   setupLinkPort();
 
   for (size_t i = 0; i < (sizeof(servoMap) / sizeof(servoMap[0])); ++i) {
@@ -84,9 +82,6 @@ void exerciseServo(size_t index) {
   Servo &servo = servoObjs[index];
   const ServoChannel &channel = servoMap[index];
 
-  Serial.println();
-  Serial.print(F("Exercising "));
-  Serial.println(channel.label);
   currentServoIndex = static_cast<uint8_t>(index);
   servoMotionActive = true;
 
@@ -161,23 +156,14 @@ void sendAck(uint8_t seq) {
 }
 
 void logLinkStats() {
-  static unsigned long lastLog = 0;
-  const unsigned long now = millis();
-  if (now - lastLog < 2000) {
-    return;
-  }
-  lastLog = now;
-
-  Serial.print(F("Link status -> packets: "));
-  Serial.print(linkPackets);
-  Serial.print(F(", parse errors: "));
-  Serial.print(linkParseErrors);
-  Serial.print(F(", last seq "));
-  Serial.print(lastPingSeq);
-  Serial.print(F(", servo "));
+  Serial.print(F("Servo "));
   Serial.print(currentServoIndex + 1);
-  Serial.print(servoMotionActive ? F(" moving") : F(" idle"));
-  Serial.println();
+  Serial.print(F(" | Link pkts "));
+  Serial.print(linkPackets);
+  Serial.print(F(" err "));
+  Serial.print(linkParseErrors);
+  Serial.print(F(" last "));
+  Serial.println(lastPingSeq);
 }
 
 void waitWithService(unsigned long durationMs) {
