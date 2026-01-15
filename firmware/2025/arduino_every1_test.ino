@@ -82,15 +82,19 @@ struct LinkReport {
   uint8_t payloadSent;
 };
 
+struct EncoderSnapshot {
+  uint32_t counts[4][2];
+};
+
 void setupMotorDrivers();
 void setupEncoders();
 void runMotorSequence(const MotorGroup &group);
 void rampPin(uint8_t pwmPin);
 void brakePins(uint8_t pinA, uint8_t pinB);
-void printEncoderReport();
+EncoderSnapshot captureEncoderSnapshot();
 void setupLinkPort();
 LinkReport queryServoController();
-void printLinkReport(const LinkReport &report);
+void printCycleSummary(const char *label, const EncoderSnapshot &snapshot, const LinkReport &report);
 bool readLinkLine(char *buffer, size_t length, unsigned long timeoutMs);
 
 void setup() {
@@ -98,21 +102,17 @@ void setup() {
   while (!Serial) {
     ;
   }
-  Serial.println(F("Arduino Every 1 PCB test starting..."));
   setupMotorDrivers();
   setupEncoders();
   setupLinkPort();
-  Serial.println(F("Motors will cycle forward/reverse while encoder counts stream every test."));
-  Serial.println(F("Spin each wheel/encoder manually to confirm counts increment on the expected channel."));
-  Serial.println(F("Data-link test over D11/D12: querying Arduino Every 2 for servo status each cycle."));
 }
 
 void loop() {
   for (const auto &group : motorGroups) {
     runMotorSequence(group);
-    printEncoderReport();
+    const EncoderSnapshot snapshot = captureEncoderSnapshot();
     const LinkReport report = queryServoController();
-    printLinkReport(report);
+    printCycleSummary(group.label, snapshot, report);
     delay(1000);
   }
 }
@@ -136,25 +136,17 @@ void setupEncoders() {
 }
 
 void runMotorSequence(const MotorGroup &group) {
-  Serial.println();
-  Serial.print(F("Testing "));
-  Serial.println(group.label);
-
-  Serial.println(F("  Forward ramp"));
   digitalWrite(group.reversePin, LOW);
   rampPin(group.forwardPin);
   delay(dwellTimeMs);
 
-  Serial.println(F("  Braking"));
   brakePins(group.forwardPin, group.reversePin);
   delay(250);
 
-  Serial.println(F("  Reverse ramp"));
   digitalWrite(group.forwardPin, LOW);
   rampPin(group.reversePin);
   delay(dwellTimeMs);
 
-  Serial.println(F("  Braking"));
   brakePins(group.forwardPin, group.reversePin);
 }
 
@@ -173,26 +165,17 @@ void brakePins(uint8_t pinA, uint8_t pinB) {
   digitalWrite(pinB, LOW);
 }
 
-void printEncoderReport() {
-  uint32_t snapshot[4][2];
+EncoderSnapshot captureEncoderSnapshot() {
+  EncoderSnapshot snapshot{};
   noInterrupts();
   for (size_t i = 0; i < 4; ++i) {
-    snapshot[i][0] = encoderCounts[i][0];
-    snapshot[i][1] = encoderCounts[i][1];
+    snapshot.counts[i][0] = encoderCounts[i][0];
+    snapshot.counts[i][1] = encoderCounts[i][1];
     encoderCounts[i][0] = 0;
     encoderCounts[i][1] = 0;
   }
   interrupts();
-
-  Serial.println(F("Encoder edge counts since last report:"));
-  for (size_t i = 0; i < 4; ++i) {
-    Serial.print(F("  "));
-    Serial.print(encoders[i].label);
-    Serial.print(F(" -> A:"));
-    Serial.print(snapshot[i][0]);
-    Serial.print(F(" B:"));
-    Serial.println(snapshot[i][1]);
-  }
+  return snapshot;
 }
 
 void setupLinkPort() {
@@ -206,7 +189,6 @@ LinkReport queryServoController() {
   LinkReport report{};
   const uint8_t payload = linkSequence++;
 
-  // Clear any stale bytes before sending a new request.
   while (linkSerial.available()) {
     linkSerial.read();
   }
@@ -259,21 +241,32 @@ bool readLinkLine(char *buffer, size_t length, unsigned long timeoutMs) {
   return false;
 }
 
-void printLinkReport(const LinkReport &report) {
-  Serial.print(F("Link test -> sent seq "));
+void printCycleSummary(const char *label, const EncoderSnapshot &snapshot, const LinkReport &report) {
+  Serial.print(label);
+  Serial.print(F(" | Enc "));
+  for (size_t i = 0; i < 4; ++i) {
+    Serial.print(i + 1);
+    Serial.print(':');
+    Serial.print(snapshot.counts[i][0]);
+    Serial.print('/');
+    Serial.print(snapshot.counts[i][1]);
+    if (i < 3) {
+      Serial.print(' ');
+    }
+  }
+  Serial.print(F(" | Link seq="));
   Serial.print(report.payloadSent);
-
+  Serial.print(F(" "));
   if (!report.replyReceived) {
-    Serial.print(F("; no reply (total errors "));
+    Serial.print(F("NO_REPLY err="));
     Serial.print(linkErrorCount);
-    Serial.println(F(")"));
+    Serial.println();
     return;
   }
-
-  Serial.print(F("; ack seq "));
-  Serial.print(report.seqEcho);
-  Serial.print(F(", servo "));
+  Serial.print(F("OK S"));
   Serial.print(report.servoId);
-  Serial.print(report.servoActive ? F(" moving") : F(" idle"));
+  Serial.print(report.servoActive ? F(" M") : F(" I"));
+  Serial.print(F(" err="));
+  Serial.print(linkErrorCount);
   Serial.println();
 }
