@@ -10,7 +10,8 @@ Integrated hardware + firmware stack for a small rover platform: power-entry pro
 - `assets/logos/` — Current logo assets; `assets/logos_legacy/` for older branding.
 - `archive/2024_code/` — Legacy Arduino/Raspberry Pi experiments and reference code.
 - `rover-software-handoff.md` — Raspberry Pi + dual Arduino Nano Every motion-stack pin maps, messaging, and validation steps.
-- `NOTICE` — Rights/usage terms (all rights reserved; contact required for reuse).
+- `LICENSE` — All rights reserved terms (permission required for any use).
+- `NOTICE` — Rights/usage reminder and owner contact.
 
 ## Quick Start by Role
 **Fabrication / PCB assembly**
