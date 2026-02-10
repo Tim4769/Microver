@@ -12,7 +12,7 @@ Rev B retunes UVLO/OVLO for a 5S pack (R3=2 kΩ, R5=24 kΩ, R7=3 kΩ). Use this 
 - Keep VIN leads short and balanced; same gauge for VIN and GND.
 
 ### 1) Visual / Continuity (unpowered)
-1. Check SOT-23 orientation, TVS polarity, electrolytic polarity, and sense resistor soldering.
+1. Check SOT-23 orientation, TVS polarity, and sense resistor soldering. The VIN electrolytic bulk is DNP in Rev B to avoid reverse-polarity damage; if a cap is installed, verify its polarity.
 2. Continuity: VIN+ to GND open; VOUT+ to GND open; VIN+ to VOUT+ open/high (body diode only); PGD to GND open.
 
 ### 2) Initial Power-On (no load)

@@ -27,7 +27,7 @@ Integrated hardware + firmware stack for a small rover platform: power-entry pro
 
 **Battery / power bring-up**
 - Use `hardware/protection_board_manufacturing_rev_a/README.md` + `test_procedure_rev_a.md` for LM74700/LM5069 power-entry board tests (reverse protection, inrush, UVLO/OVLO, current limit). Rev B README lists UVLO/OVLO resistor changes for 5S.
-- For the boost converter (LM5122-Q1) and motor driver buck stages, respect the decoupling/thermal guidance in their READMEs before loading the rails.
+- For the boost converter (LM5122-Q1) and buck converter boards, respect the decoupling/thermal guidance in their READMEs before loading the rails.
 
 ## Hardware Module Summaries (in `hardware/`)
 - `protection_board_manufacturing_rev_a/` — Power-entry protection board: ideal diode (LM74700-Q1) + hot-swap/inrush/current-limit (LM5069), PGD status, TVS, parallel FETs. Includes Gerbers/BOM/CPL and step-by-step test plan.  
@@ -35,7 +35,7 @@ Integrated hardware + firmware stack for a small rover platform: power-entry pro
 - `boost_manufacturing_rev_a/` — 18–24 V → 36 V synchronous boost (LM5122-Q1), forced CCM, sized for motor bus loads; includes BOM/CPL/Gerbers and stack-up.  
 - `boost_manufacturing_rev_b/` — Rev A delta notes (input cap/value corrections); regenerate outputs after applying changes.
 - `buck_motor_driver_manufacturing_rev_a/` — Triple-motor H-bridge (VNH5019A-E) with integrated high-current buck stage; Arduino Nano Every control; reverse polarity FET; current sense.  
-- `buck_motor_driver_manufacturing_rev_b/` — Component substitutions/cost-downs + buck feedback corrections; use Rev A README for architecture, then apply Rev B changes before fab.
+- `buck_manufacturing_rev_b/` — Buck-only spin with value/cost-down updates and feedback rewiring fix; motor driver section removed in KiCad. Use Rev A folder for the combined board architecture.
 - `pcb_manufacturing_rev_a/` — Rover main THT PCB for power distribution, servos (4×), LiDAR, Raspberry Pi rail; emphasizes easy hand assembly and large copper for 5 V rails.  
 - `pcb_manufacturing_rev_b/` — Same board with capacitor polarity/footprint silkscreen fixes.
 - `pcb_manufacturing_v1/` — Older main PCB spin kept for history; prefer Rev A/B.

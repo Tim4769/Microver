@@ -39,7 +39,7 @@ Through-hole, module-friendly PCB that routes power (including high-current 5 V 
 - Servo spikes can brown out logic: place bulk caps close to servo rail and Pi rail; keep sensor/logic decoupling close to modules.
 
 ## 6) PCB stack-up and grounding
-- Layer stack:
+- Layer stack (Rev B — produced):
   - F.Silkscreen (top)
   - F.Paste
   - F.Mask (top solder mask), thickness ~0.01 mm, Er ~3.3
@@ -96,3 +96,20 @@ THT + modules maximize assembly success and reworkability. A 4-layer stack with 
 
 ## 15) Post-manufacture testing / revisions
 - Rev B: incorporates the capacitor polarity/footprint/silkscreen corrections from Rev A; no additional errata noted yet. Use the same bring-up sequence and monitor rails for any remaining issues.
+
+## 16) Rev C planned stack-up (not fabricated yet)
+- Layer stack (target for Rev C):
+  - F.Silkscreen (top silk screen), color/material not specified
+  - F.Paste (top solder paste)
+  - F.Mask (top solder mask), thickness 0.01 mm, color not specified, material not specified, Er 3.3, LossTg 0
+  - F.Cu 0.035 mm
+  - Dielectric 1 (prepreg) 0.10 mm FR4, Er 4.5, LossTg 0.02
+  - In1.Cu 0.017 mm
+  - Dielectric 2 (core) 1.25 mm FR4, Er 4.5, LossTg 0.02
+  - In2.Cu 0.017 mm
+  - Dielectric 3 (prepreg) 0.10 mm FR4, Er 4.5, LossTg 0.02
+  - B.Cu 0.035 mm
+  - B.Mask (bottom solder mask) 0.035 mm, color not specified, material not specified, Er 3.3, LossTg 0
+  - B.Paste (bottom solder paste)
+  - B.Silkscreen (bottom silk screen), color/material not specified
+  - Finish: HAL lead-free
