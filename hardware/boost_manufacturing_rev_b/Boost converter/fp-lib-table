@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "Boost_Converter_Footprint_Library")(type "KiCad")(uri "${KIPRJMOD}/Boost_Converter_Footprint_Library.pretty")(options "")(descr ""))
+)

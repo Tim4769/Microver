@@ -102,6 +102,7 @@ Recommendations: set PWM = 0 before changing direction; avoid instantaneous forw
 - Verify IC and MOSFET orientation; check for bridges on OUTA/OUTB pins.
 - Reverse-protection NMOS (U3) sits in the VBAT path — confirm thermal/footprint fit.
 - Tie MCU ground to board ground to ensure valid DIAG/CS readings.
+- Buck errata (Q2): The buck-stage MOSFET Q2 footprint is flipped in Rev A — the source is tied to VOUT but should be the drain. Keep this in mind for rework/analysis; Rev B fixes the orientation.
 
 ## 10) Bring-Up Procedure (first power-on)
 1) Visual inspection: IC orientation, MOSFET orientation, no solder bridges on OUTA/OUTB pins.  

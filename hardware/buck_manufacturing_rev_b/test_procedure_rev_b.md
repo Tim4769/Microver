@@ -1,17 +1,18 @@
-# Buck Converter + Motor Driver — Rev B
+# Buck Converter — Rev B
 ## Bench Test Procedure
 
-Rev B changes are confined to the buck BOM (value corrections and cost-down parts). Motor driver stage is unchanged from Rev A. Test the buck section first; then optionally exercise the motor driver using the same sketches as Rev A.
+Rev B is a buck-only spin (motor driver removed from KiCad). Test focuses solely on the buck rail behavior, value corrections, and feedback rewiring fix.
 
 ### 0) Equipment
 - Bench supply 0–30 V / ≥10 A with current limit (start low).
 - DMM; oscilloscope for ripple/soft-start.
 - Electronic load or resistors for 5 V at 0.5–10 A (2.5 Ω/25 W, 1 Ω/50 W, 0.5 Ω/50–75 W). Keep high-current runs short.
-- USB cable for Arduino Nano Every if you want to test motor driver sketches later.
 
 ### 1) Visual / Continuity
-1. Confirm Rev B MPN swaps populated (R2/R3/R4/R5/R8/R20, C8/C13/C14/C17, cost-down caps/diode) and R19 removed, C19/C20 removed.
+1. Confirm Rev B MPN swaps populated (R2/R3/R4/R5/R8/R20, C8/C13/C14/C17, cost-down caps/diode) and R19 removed. Verify added output caps C19/C20/C22/C23 are fitted and via stitching present around the buck area (keep-out under inductor).
 2. DMM: VIN–GND open; VOUT–GND open; VIN–VOUT open (no short).
+3. Status LED check (PGOOD tied): Red LED ON means PGOOD low (power not good or still booting); LED OFF means PGOOD floating/high (power good).
+4. Net sanity: RT resistor should terminate at RT pin (not SS/TRK); soft-start cap should terminate at SS/TRK; FB pin should connect to the R8/C17/R9 feedback/comp network per the Rev B schematic.
 
 ### 2) UVLO / Soft-Start (buck)
 1. No load. Set VIN = 6 V, ILIM = 0.5 A. Ramp up slowly and note UVLO turn-on; then ramp down to find turn-off. Record both.
@@ -38,11 +39,7 @@ Rev B changes are confined to the buck BOM (value corrections and cost-down part
 ### 8) Load Transient (if e-load supports)
 1. VIN = 24 V. Program 1 A ↔ 6 A step at ~1 kHz. Capture VOUT deviation; aim for <100 mV peak and fast recovery without ringing.
 
-### 9) Motor Driver Smoke Test (optional, unchanged hardware)
-1. Connect Arduino, load `motor_driver_test.ino` (Rev A folder) with pins: ENA D10, ENB D9, INA D8, INB D7, PWM D5, CS A0.
-2. Use low duty to verify forward/reverse/brake; monitor buck rail for droop during motor pulses.
-
-### 10) Post-Test
+### 9) Post-Test
 - Power down, discharge caps, inspect for heat discoloration.
 - Log UVLO, soft-start time, frequency, VOUT vs load, transient results, temps.
 
@@ -50,4 +47,4 @@ Rev B changes are confined to the buck BOM (value corrections and cost-down part
 - UVLO/soft-start clean; VOUT ≈5 V, no overshoot.
 - Stable regulation through 0.5–6 A continuous and short 10–12 A bursts without oscillation.
 - Acceptable ripple and thermals; no component damage.
-- Motor driver stage powers and drives at low duty without browning the buck rail.
+- Stable buck rail only (motor driver not populated in this spin).
