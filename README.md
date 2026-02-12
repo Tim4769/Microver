@@ -9,7 +9,7 @@ Integrated hardware + firmware stack for a small rover platform: power-entry pro
 - `hardware/` — KiCad projects and fabrication outputs for each board. See module summaries below.
 - `assets/logos/` — Current logo assets; `assets/logos_legacy/` for older branding.
 - `archive/2024_code/` — Legacy Arduino/Raspberry Pi experiments and reference code.
-- `rover-software-handoff.md` — Raspberry Pi + dual Arduino Nano Every motion-stack pin maps, messaging, and validation steps.
+- `firmware/2026/rover-software-handoff.md` — Raspberry Pi + dual Arduino Nano Every motion-stack pin maps, messaging, and validation steps.
 - `LICENSE` — All rights reserved terms (permission required for any use).
 - `NOTICE` — Rights/usage reminder and owner contact.
 
@@ -21,7 +21,7 @@ Integrated hardware + firmware stack for a small rover platform: power-entry pro
 - Regenerate outputs after any edits in KiCad (Gerbers, BOM, CPL, assembly drawings).
 
 **Firmware / controls**
-- Start with `firmware/2025/arduino_every1_test.ino` (DC drive + encoders) and `arduino_every2_test.ino` (servos). Hardware pin maps are in `rover-software-handoff.md`.
+- Start with `firmware/2025/arduino_every1_test.ino` (DC drive + encoders) and `arduino_every2_test.ino` (servos). Hardware pin maps are in `firmware/2026/rover-software-handoff.md`.
 - `firmware/2025/motor_drivers.txt` captures driver-related notes; diagnostics helpers live in `firmware/2025/diagnostics/`.
 - Raspberry Pi talks USB CDC to Every 1; Every 1 ↔ Every 2 uses SoftwareSerial @ 38 400 baud (`PING/ACK` protocol described in the handoff doc).
 
@@ -33,7 +33,7 @@ Integrated hardware + firmware stack for a small rover platform: power-entry pro
 - `protection_board_manufacturing_rev_a/` — Power-entry protection board: ideal diode (LM74700-Q1) + hot-swap/inrush/current-limit (LM5069), PGD status, TVS, parallel FETs. Includes Gerbers/BOM/CPL and step-by-step test plan.  
 - `protection_board_manufacturing_rev_b/` — Same board with retuned UVLO/OVLO resistor network for 5S packs (see README for exact R3/R5/R7 values and threshold table).
 - `boost_manufacturing_rev_a/` — 18–24 V → 36 V synchronous boost (LM5122-Q1), forced CCM, sized for motor bus loads; includes BOM/CPL/Gerbers and stack-up.  
-- `boost_manufacturing_rev_b/` — Rev A delta notes (input cap/value corrections); regenerate outputs after applying changes.
+- `boost_manufacturing_rev_b/` — Rev A delta notes (input cap/value corrections + MCU-controlled `SS` pull-down shutdown for clean soft-start restart); regenerate outputs after applying changes.
 - `buck_motor_driver_manufacturing_rev_a/` — Triple-motor H-bridge (VNH5019A-E) with integrated high-current buck stage; Arduino Nano Every control; reverse polarity FET; current sense.  
 - `buck_manufacturing_rev_b/` — Buck-only spin with value/cost-down updates and feedback rewiring fix; motor driver section removed in KiCad. Use Rev A folder for the combined board architecture.
 - `pcb_manufacturing_rev_a/` — Rover main THT PCB for power distribution, servos (4×), LiDAR, Raspberry Pi rail; emphasizes easy hand assembly and large copper for 5 V rails.  
@@ -49,7 +49,7 @@ Integrated hardware + firmware stack for a small rover platform: power-entry pro
 
 ## Testing & Validation References
 - Power-entry board: `hardware/protection_board_manufacturing_rev_a/test_procedure_rev_a.md` (reverse polarity, PGD ramp timing, current-limit/short tests, UVLO/OVLO sweeps, hot-plug, dwell).  
-- Motion stack software: validation loop in `rover-software-handoff.md` (PING/ACK link, motor spin/encoders, servo sweeps, watchdog ideas).  
+- Motion stack software: validation loop in `firmware/2026/rover-software-handoff.md` (PING/ACK link, motor spin/encoders, servo sweeps, watchdog ideas).  
 - Add new test logs next to each board as `test_procedure_<rev>.md` or `validation_notes.md` for traceability.
 
 ## Naming & Organization

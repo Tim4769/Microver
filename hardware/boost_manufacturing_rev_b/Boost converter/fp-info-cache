@@ -1,4 +1,4 @@
-26779941921915586
+26781714645056329
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -389,7 +389,7 @@ DNK0008A
 
 CSD18540Q5B 
 0
-8
+9
 8
 Boost_Converter_Footprint_Library
 HTSSOP20
@@ -412,6 +412,13 @@ KCM55WR71H226MH01K
 0
 2
 2
+Boost_Converter_Footprint_Library
+SOT-23TO-236_318-08_ONS
+
+2N7002 
+0
+3
+3
 Button_Switch_Keyboard
 SW_Cherry_MX_1.00u_PCB
 Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf

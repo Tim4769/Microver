@@ -1,7 +1,7 @@
 # Boost Converter (LM5122-Q1) — Rev B
 ## Bench Test & Validation Procedure
 
-Rev B updates: C1 removed (low rating), C2/C7 upgraded to 50 V, added input bulk C12/C13 (470 µF) and C14 (47 µF). Follow this plan before full deployment.
+Rev B updates: C1 removed (low rating), C2/C7 upgraded to 50 V, added input bulk C12/C13 (470 µF) and C14 (47 µF), and added a MOSFET pull-down on `SS` for microcontroller-controlled ON/OFF. Follow this plan before full deployment.
 
 ### 0) Equipment
 - Bench supply 0–30 V / ≥15 A with CC limit; sense leads recommended.
@@ -12,7 +12,8 @@ Rev B updates: C1 removed (low rating), C2/C7 upgraded to 50 V, added input bulk
 ### 1) Visual / Continuity
 1. Verify new input bulk caps (C12/C13/C14) polarity/clearance; ensure C1 pads are unpopulated/clean.
 2. Check C2/C7 are 50 V parts; confirm FET/inductor orientation and solder.
-3. DMM: VIN–GND open; VOUT–GND open; VIN–VOUT open/high (body diode path only).
+3. Verify the added `SS` pull-down MOSFET orientation and gate-control routing from MCU/control pin.
+4. DMM: VIN–GND open; VOUT–GND open; VIN–VOUT open/high (body diode path only).
 
 ### 2) No-Load Start
 1. VIN = 18 V, ILIM = 0.5 A. No load.
@@ -22,6 +23,14 @@ Rev B updates: C1 removed (low rating), C2/C7 upgraded to 50 V, added input bulk
 ### 3) Startup Waveform
 1. VIN = 20 V, ILIM = 2 A. Scope VOUT (CH1) and VIN (CH2).
 2. Enable; record rise time and overshoot (should be minimal). Check for ringing on SW if probed.
+
+### 3A) SS-Controlled Shutdown / Restart
+1. Keep VIN = 20 V, no load (or light load), converter running.
+2. Assert the MCU control that turns ON the `SS` pull-down MOSFET.
+3. Confirm boost switching stops and VOUT decays in a controlled way.
+4. De-assert the MCU control (release `SS`).
+5. Confirm a full new soft-start ramp on VOUT.  
+   Note: `UVLO` is not being used as the shutdown method in this design.
 
 ### 4) Light Load
 1. Apply ~1 A load at 36 V (≈36 Ω). ILIM = 3 A.
@@ -48,6 +57,7 @@ Rev B updates: C1 removed (low rating), C2/C7 upgraded to 50 V, added input bulk
 
 ### Pass/Fail (quick)
 - Clean start at 18–22 V, VOUT ≈36 V, no overshoot.
+- `SS` pull-down command reliably disables boost and re-enable produces a fresh soft-start ramp.
 - Holds regulation at 1–5 A with acceptable ripple and temps.
 - Survives brief short without damage.
 - Stable across VIN sweep; no oscillation or excessive heating.
