@@ -5,7 +5,7 @@
 	(layer "F.Cu")
 	(tags "CSD18540Q5B ")
 	(property "Reference" "REF**"
-		(at 0 0 0)
+		(at 0 -4 0)
 		(unlocked yes)
 		(layer "F.SilkS")
 		(uuid "06733c49-f8fa-4887-952d-ed8f45a5c45e")
@@ -298,18 +298,6 @@
 		(layer "F.Fab")
 		(uuid "97d16043-b13c-467f-86be-200c07d0b692")
 	)
-	(fp_text user "Designator109"
-		(at -3.048 -4.064 0)
-		(unlocked yes)
-		(layer "F.SilkS")
-		(uuid "b116a62a-c044-4340-a164-0be98d86df59")
-		(effects
-			(font
-				(size 1 1)
-				(thickness 0.15)
-			)
-		)
-	)
 	(fp_text user "${REFERENCE}"
 		(at 0 0 0)
 		(unlocked yes)
@@ -363,6 +351,13 @@
 		(size 0.860001 0.509999)
 		(layers "F.Cu" "F.Mask" "F.Paste")
 		(uuid "94d3a33e-3661-4ef0-b053-b7c4921373f2")
+	)
+	(pad "8" smd roundrect
+		(at 1.02 -0.00428)
+		(size 2.44 4.201434)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.15)
+		(uuid "a6f4a4af-5759-4d56-9d1b-31eb10437985")
 	)
 	(pad "8" smd rect
 		(at 2.819999 -1.905)

@@ -41,6 +41,8 @@ Delta notes from Rev A → Rev B for the LM5122-Q1 boost converter. Updated 2026
 - R12 — **C23234 → C23206**.  
 - R15 — **C23153 → C22965**.  
 - Input bulk: keep C12 (470 µF) and C14 (47 µF); C13 is now DNP unless extra input ripple suppression is needed.
+- Added a MOSFET pull-down on the LM5122 `SS` pin for converter ON/OFF control from a microcontroller.
+- Shutdown is done by pulling `SS` low (not by pulling down `UVLO`) so each re-enable performs a fresh soft-start ramp.
 
 ### Cost / availability optimizations
 - C11, C14 — **C7213084 → C440198** (cost-down MLCC, same value).  
@@ -58,4 +60,4 @@ Delta notes from Rev A → Rev B for the LM5122-Q1 boost converter. Updated 2026
 1) Update KiCad schematic/BOM with new/removed capacitors and MPNs.  
 2) Regenerate BOM, CPL, Gerbers after updating footprints/value labels.  
 3) Re-run DRC/PCBA checks for clearance with larger input caps (C12/C13).  
-4) Re-validate input surge/UVLO with added bulk.
+4) Re-validate input surge/UVLO with added bulk and verify MCU-controlled `SS` shutdown/restart behavior.
