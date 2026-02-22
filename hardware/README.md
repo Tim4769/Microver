@@ -3,11 +3,11 @@
 Use this index to avoid opening stale revisions by accident.
 
 ## Start here
-- `current/README.md` - Active board entry points (latest revision by board function).
+- `current/README.md` - Latest board revisions (active work only).
 
 ## Historical revisions
 - `archive/README.md` - Archived revisions and legacy boards.
 
-## Canonical data locations
-- KiCad projects, Gerbers, BOMs, and CPL files remain in their original revision folders (for tool-path stability).
-- The `current/` and `archive/` directories are navigation indexes that point to those canonical folders.
+## Important after folder moves
+- KiCad output paths in project files may still point to old folder locations.
+- After moving a board revision, update KiCad plot and export paths (Gerber, drill, BOM, CPL) before regenerating manufacturing outputs.
