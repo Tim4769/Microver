@@ -14,6 +14,7 @@ Rev B retunes UVLO/OVLO for a 5S pack (R3=2 kΩ, R5=24 kΩ, R7=3 kΩ). Use this 
 ### 1) Visual / Continuity (unpowered)
 1. Check SOT-23 orientation, TVS polarity, and sense resistor soldering. The VIN electrolytic bulk is DNP in Rev B to avoid reverse-polarity damage; if a cap is installed, verify its polarity.
 2. Continuity: VIN+ to GND open; VOUT+ to GND open; VIN+ to VOUT+ open/high (body diode only); PGD to GND open.
+3. LM74700 charge-pump sanity: ANODE and VCAP must not be shorted. Verify the charge-pump capacitor is connected between ANODE and VCAP (one terminal on each pin).
 
 ### 2) Initial Power-On (no load)
 1. Set VIN = 18.5 V (5S nominal), ILIM = 0.5 A. No load.

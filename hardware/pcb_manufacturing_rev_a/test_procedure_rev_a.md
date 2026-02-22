@@ -7,9 +7,9 @@ Bring-up & Functional Test Guide (using existing firmware sketches)
 - Loads: a few servos, the six DC motor driver harnesses, Raspberry Pi (optional later), and a small 5 V load (e.g., USB tester or 5 Ω/10 W resistor).
 - USB cables for two Arduino Nano Every boards.
 - Firmware sketches from `firmware/2025/`:
-  - Drive/encoders/link: `arduino_every1_test.ino`
-  - Servos/link: `arduino_every2_test.ino`
-  - Quick isolates: `left_side_test.ino`, `right_side_test.ino`, `servo1_test.ino` … etc. in `firmware/2025/diagnostics/`.
+  - Drive/encoders/link: `firmware/2025/controllers/arduino_every1_test.ino`
+  - Servos/link: `firmware/2025/controllers/arduino_every2_test.ino`
+  - Quick isolates: drivetrain tests in `firmware/2025/diagnostics/drivetrain/`, link tests in `firmware/2025/diagnostics/link/`, servo tests in `firmware/2025/diagnostics/servos/`.
 
 ## 1) Visual / Continuity (unpowered)
 1. Inspect XT30 polarity, buck regulator orientation, electrolytic capacitor polarity, header silks for servos/LiDAR/Pi.
@@ -60,4 +60,3 @@ Bring-up & Functional Test Guide (using existing firmware sketches)
 - Rail droop/noise: add temporary bulk on the affected rail; check connector seating.
 - Link errors: re-seat D11/D12 wires; confirm baud at 38 400.
 - Encoder miscounts: verify A/B wiring and pull-ups; swap A/B if counts decrease in forward.
-

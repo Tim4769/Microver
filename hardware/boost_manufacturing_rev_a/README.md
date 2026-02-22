@@ -1,5 +1,7 @@
 # Boost Converter (LM5122-Q1) — Rev A
 
+> DEPRECATED REVISION: For new work, start at `../current/boost_converter/README.md`.
+
 **Owner / Contact:** Tim Wang — timwang007@outlook.com  
 **Revision:** Rev A  
 **Date:** 2026-01-20
