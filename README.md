@@ -2,13 +2,15 @@
 
 Integrated hardware + firmware stack for a small rover platform: power-entry protection, high-current motor drive, boost and buck converters, main rover PCB, and Arduino/Raspberry Pi control firmware. This repo packages manufacturing outputs (Gerbers/BOM/CPL), build/test notes, and firmware handoff material in one place.
 
-## Current Status (as of 2026-02-21)
-- Power protection Rev B docs now capture both the original Rev B value changes and the latest LM74700 charge-pump wiring fix (`ANODE`/`VCAP` capacitor placement), including test checks to prevent recurrence.
-- Buck + motor driver Rev A docs now call out the Q2 orientation errata (source tied to `VOUT` in Rev A); buck-only Rev B documents the orientation correction.
-- Main rover PCB Rev C folder has been added as the planned next spin (not yet fabricated) and carries forward Rev B fixes.
-- LM5050 redundant-supply ORing board Rev A is now included for 18 V / 36 V source switchover.
-- Firmware folder has been reorganized by function under each year (`controllers`, `diagnostics`, `docs`, `references`) with an index at `firmware/README.md`.
-- Hardware now uses a `current/` and `archive/` navigation split so contributors default to latest boards.
+## Current Status (as of 2026-02-22)
+- Protection board: Rev B
+- Boost converter: Rev B
+- Buck converter (standalone): Rev B
+- Motor driver board: Rev A
+- Rover main PCB with premade components: Rev C
+- Brushless test board: Rev A
+- Redundant-supply ORing board: Rev A
+- Firmware handoff docs: 2026 (`firmware/2026/docs/`)
 
 ## Repository Map (top level)
 - `firmware/` — Organized by year and role (controllers, diagnostics, docs, references). See `firmware/README.md`.
