@@ -1,5 +1,7 @@
 # Arduino Rover Main PCB — Rev A
 
+> DEPRECATED REVISION: For new work, start at `../current/main_pcb/README.md`.
+
 **Scope:** Rationale, constraints, and implementation notes for the Arduino-based rover PCB that distributes power/signals to motors, servos, LiDAR, sensors, and a Raspberry Pi rail.
 
 **Owner / Contact:** Tim Wang — timwang007@outlook.com  
