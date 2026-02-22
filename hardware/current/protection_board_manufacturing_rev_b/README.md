@@ -57,7 +57,3 @@ Power-entry protection board for a 5S battery (≈18.5 V nominal) with ideal-dio
 ## Files in this folder
 - `BOM.csv` — updated resistor values and MPNs for Rev B.
 - (Gerbers, CPL, drawings) — not regenerated yet for Rev B; reuse Rev A outputs only after validating against these value changes.
-
-## Action items before release
-- Regenerate schematic/layout PDFs and Gerbers once the new values are reflected in the KiCad project.
-- Update pick-and-place and assembly drawings to ensure R3/R5/R7 designators match the new values/MPNs.

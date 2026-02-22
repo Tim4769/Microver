@@ -88,30 +88,8 @@ Through-hole, module-friendly PCB that routes power (including high-current 5 V 
 ## 12) Known issues and documentation notes
 - Schematic digital nets were mislabeled (all “DIGI”). Should be unique (DIGI1, DIGI2, ...). Correct labels in schematic/PCB before next spin.
 
-## 13) Future improvements
-- PMOS selection (placeholder): when selecting an ideal-diode/reverse-protection device, specify VDS margin, ID/power dissipation, RDS(on) at gate drive, thermal, and gate protection.
-- Optional reverse-polarity protection footprint (even if bypassed by default).
-- Current-shunt footprint for debugging servo/Pi current draw.
-
 ## 14) Design rationale (summary)
 THT + modules maximize assembly success and reworkability. A 4-layer stack with continuous ground planes lowers return-path impedance and noise. Routing uses 1.0 mm / 2.0 mm tracks and 1.2/0.6 mm / 1.6/0.8 mm vias, with wider copper, shorter runs, and via arrays on high-current paths. Bulk and decoupling capacitance supports transient-heavy loads; a fuse provides basic overcurrent safety. Known net-label issues are flagged for correction.
 
 ## 15) Post-manufacture testing / revisions
 - Rev B: incorporates the capacitor polarity/footprint/silkscreen corrections from Rev A; no additional errata noted yet. Use the same bring-up sequence and monitor rails for any remaining issues.
-
-## 16) Rev C planned stack-up (not fabricated yet)
-- Layer stack (target for Rev C):
-  - F.Silkscreen (top silk screen), color/material not specified
-  - F.Paste (top solder paste)
-  - F.Mask (top solder mask), thickness 0.01 mm, color not specified, material not specified, Er 3.3, LossTg 0
-  - F.Cu 0.035 mm
-  - Dielectric 1 (prepreg) 0.10 mm FR4, Er 4.5, LossTg 0.02
-  - In1.Cu 0.017 mm
-  - Dielectric 2 (core) 1.25 mm FR4, Er 4.5, LossTg 0.02
-  - In2.Cu 0.017 mm
-  - Dielectric 3 (prepreg) 0.10 mm FR4, Er 4.5, LossTg 0.02
-  - B.Cu 0.035 mm
-  - B.Mask (bottom solder mask) 0.035 mm, color not specified, material not specified, Er 3.3, LossTg 0
-  - B.Paste (bottom solder paste)
-  - B.Silkscreen (bottom silk screen), color/material not specified
-  - Finish: HAL lead-free

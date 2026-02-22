@@ -88,11 +88,6 @@ Through-hole, module-friendly PCB that routes power (including high-current 5 V 
 ## 12) Known issues and documentation notes
 - Schematic digital nets were mislabeled (all “DIGI”). Should be unique (DIGI1, DIGI2, ...). Correct labels in schematic/PCB before next spin.
 
-## 13) Future improvements
-- PMOS selection (placeholder): when selecting an ideal-diode/reverse-protection device, specify VDS margin, ID/power dissipation, RDS(on) at gate drive, thermal, and gate protection.
-- Optional reverse-polarity protection footprint (even if bypassed by default).
-- Current-shunt footprint for debugging servo/Pi current draw.
-
 ## 14) Design rationale (summary)
 THT + modules maximize assembly success and reworkability. A 4-layer stack with continuous ground planes lowers return-path impedance and noise. Routing uses 1.0 mm / 2.0 mm tracks and 1.2/0.6 mm / 1.6/0.8 mm vias, with wider copper, shorter runs, and via arrays on high-current paths. Bulk and decoupling capacitance supports transient-heavy loads; a fuse provides basic overcurrent safety. Known net-label issues are flagged for correction.
 

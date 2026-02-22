@@ -114,8 +114,3 @@ Recommendations: set PWM = 0 before changing direction; avoid instantaneous forw
 ## 11) Known assumptions / limitations
 - Motors assumed identical/similar; no per-motor current balancing.
 - Not safety-rated or for human-critical systems.
-
-## 12) Notes for future revisions
-- For independent motor control, a new architecture is required.
-- If higher continuous current is needed, revisit copper thickness, MOSFET selection, and bulk capacitance.
-- Consider per-motor fuses/PTCs and a hardware overcurrent latch.
