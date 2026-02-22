@@ -1,6 +1,6 @@
 # Power Protection Board — Rev A
 
-> DEPRECATED REVISION: For new work, start at `../current/protection_board/README.md`.
+> DEPRECATED REVISION: For new work, start at `../../current/protection_board_manufacturing_rev_b/README.md`.
 
 **Project:** Power Protection Board  
 **Owner / Contact:** Tim Wang — timwang007@outlook.com  

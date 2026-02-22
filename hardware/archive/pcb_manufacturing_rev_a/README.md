@@ -1,15 +1,15 @@
-# Arduino Rover Main PCB — Rev B
+# Arduino Rover Main PCB — Rev A
 
-> DEPRECATED REVISION: For new work, start at `../current/main_pcb/README.md`.
+> DEPRECATED REVISION: For new work, start at `../../current/pcb_manufacturing_rev_c/README.md`.
 
 **Scope:** Rationale, constraints, and implementation notes for the Arduino-based rover PCB that distributes power/signals to motors, servos, LiDAR, sensors, and a Raspberry Pi rail.
 
 **Owner / Contact:** Tim Wang — timwang007@outlook.com  
-**Revision:** Rev B  
-**Date:** 2025-12-29
+**Revision:** Rev A  
+**Date:** 2025-12-14
 
 ## 1) Overview
-Through-hole, module-friendly PCB that routes power (including high-current 5 V rails), breaks out signals via headers, and supports multiple actuators/sensors. Built around off-the-shelf parts to keep first-time assembly reliable and repairable without a reflow oven. Rev B incorporates the capacitor polarity/footprint/silkscreen corrections from Rev A.
+Through-hole, module-friendly PCB that routes power (including high-current 5 V rails), breaks out signals via headers, and supports multiple actuators/sensors. Built around off-the-shelf parts to keep first-time assembly reliable and repairable without a reflow oven.
 
 ## 2) Design goals and constraints
 - Easy assembly with basic soldering (THT-only).
@@ -41,7 +41,7 @@ Through-hole, module-friendly PCB that routes power (including high-current 5 V 
 - Servo spikes can brown out logic: place bulk caps close to servo rail and Pi rail; keep sensor/logic decoupling close to modules.
 
 ## 6) PCB stack-up and grounding
-- Layer stack (Rev B — produced):
+- Layer stack (applies to all boards):
   - F.Silkscreen (top)
   - F.Paste
   - F.Mask (top solder mask), thickness ~0.01 mm, Er ~3.3
@@ -97,21 +97,5 @@ Through-hole, module-friendly PCB that routes power (including high-current 5 V 
 THT + modules maximize assembly success and reworkability. A 4-layer stack with continuous ground planes lowers return-path impedance and noise. Routing uses 1.0 mm / 2.0 mm tracks and 1.2/0.6 mm / 1.6/0.8 mm vias, with wider copper, shorter runs, and via arrays on high-current paths. Bulk and decoupling capacitance supports transient-heavy loads; a fuse provides basic overcurrent safety. Known net-label issues are flagged for correction.
 
 ## 15) Post-manufacture testing / revisions
+- Rev A: +18 V rail short caused by rotated polarized capacitors (positive pads tied to GND, negative to power). Fixes applied: rotated affected capacitors; updated footprints so pad numbering/polarity match nets; verified routing; corrected silkscreen polarity. Result: +18 V and GND are no longer shorted; polarity markings now match the schematic.
 - Rev B: incorporates the capacitor polarity/footprint/silkscreen corrections from Rev A; no additional errata noted yet. Use the same bring-up sequence and monitor rails for any remaining issues.
-
-## 16) Rev C planned stack-up (not fabricated yet)
-- Layer stack (target for Rev C):
-  - F.Silkscreen (top silk screen), color/material not specified
-  - F.Paste (top solder paste)
-  - F.Mask (top solder mask), thickness 0.01 mm, color not specified, material not specified, Er 3.3, LossTg 0
-  - F.Cu 0.035 mm
-  - Dielectric 1 (prepreg) 0.10 mm FR4, Er 4.5, LossTg 0.02
-  - In1.Cu 0.017 mm
-  - Dielectric 2 (core) 1.25 mm FR4, Er 4.5, LossTg 0.02
-  - In2.Cu 0.017 mm
-  - Dielectric 3 (prepreg) 0.10 mm FR4, Er 4.5, LossTg 0.02
-  - B.Cu 0.035 mm
-  - B.Mask (bottom solder mask) 0.035 mm, color not specified, material not specified, Er 3.3, LossTg 0
-  - B.Paste (bottom solder paste)
-  - B.Silkscreen (bottom silk screen), color/material not specified
-  - Finish: HAL lead-free
