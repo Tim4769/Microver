@@ -6,7 +6,7 @@
 **Project:** Project CK  
 
 ## 1) Scope
-Rev B is now a buck-only spin. The motor driver section was removed from the KiCad project; use the Rev A folder for the combined VNH5019 + buck board architecture and pinout. This README captures the buck changes, fixes, and requested follow-on variants.
+Rev B is now a buck-only spin. The motor driver section was removed from the KiCad project; use the Rev A folder for the combined VNH5019 + buck board architecture and pinout. This README captures the buck changes and fixes.
 
 ## 2) PCB stack-up (applies to all Rev B boards)
 - Layer stack:
@@ -28,20 +28,6 @@ Rev B is now a buck-only spin. The motor driver section was removed from the KiC
 ## 3) Change Summary
 ### Motor driver stage
 - Removed in this spin (buck-only). For the VNH5019 power stage and connectors, refer to `buck_motor_driver_manufacturing_rev_a/`.
-
-### Architecture / variant requests (from bench notes)
-- 24 V VOUT can feed another buck (keep).
-- Motor driver part + outputs removed in KiCad (done).
-- Add buck regulator optimized for 5 V.
-- Add buck regulator optimized for 9 V.
-- Add buck regulator optimized for 12 V.
-- Separate PCBs to compare with VNH in cost.
-- Buck heatsink.
-- Separate motor driver board.
-- Separate buck board.
-- Combined board of buck + motor driver.
-- Status LED (PGOOD): Red LED is ON only when PGOOD is pulled low (power not good or during buck startup/boot). LED is OFF when PGOOD floats/high (power good).
-- Mechanical: Added three M3 mounting holes for enclosure/heat-spreader mounting.
 
 ### Buck stage
 ### Functional/value corrections (based on TI calculator vs Rev A datasheet example)
@@ -89,9 +75,3 @@ Rev B is now a buck-only spin. The motor driver section was removed from the KiC
 
 ## 4) Files
 - Rev B BOM/CPL/Gerbers not yet generated. Apply the above substitutions/additions/removals in KiCad, then regenerate outputs.
-
-## 5) Action Items
-1) Update schematic/BOM with new MPNs, removal of R19, R20 re-added as C23260, and populated output caps C19/C20/C22/C23 plus via stitching.  
-2) Regenerate BOM, CPL, and Gerbers after value/footprint updates.  
-3) Recompute buck feedback network after R2/R3/R4/R5/R20 changes; confirm target VOUT.  
-4) Run DRC/ERC and spot-check placement/clearance for revised resistors, swapped capacitors/diode, and added stitching vias (keep inductor keep-out).

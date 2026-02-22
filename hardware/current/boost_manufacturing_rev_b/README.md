@@ -55,9 +55,3 @@ Delta notes from Rev A → Rev B for the LM5122-Q1 boost converter. Updated 2026
 
 ## 4) Files
 - Rev B BOM/CPL/Gerbers not yet generated. Apply the above changes to the Rev A KiCad project, then regenerate outputs before fabrication.
-
-## 5) Action Items
-1) Update KiCad schematic/BOM with new/removed capacitors and MPNs.  
-2) Regenerate BOM, CPL, Gerbers after updating footprints/value labels.  
-3) Re-run DRC/PCBA checks for clearance with larger input caps (C12/C13).  
-4) Re-validate input surge/UVLO with added bulk and verify MCU-controlled `SS` shutdown/restart behavior.

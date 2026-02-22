@@ -5,7 +5,7 @@
 **Owner / Contact:** Tim Wang — timwang007@outlook.com  
 **Revision:** Rev C  
 **Date:** 2026-02-01  
-**Status:** Planned (not yet fabricated) — captures the new stack-up and will replace Rev B after validation.
+**Status:** Rev C
 
 ## 1) Overview
 Through-hole, module-friendly PCB that routes power (including high-current 5 V rails), breaks out signals via headers, and supports multiple actuators/sensors. Built around off-the-shelf parts to keep first-time assembly reliable and repairable without a reflow oven. Rev C carries forward the Rev B polarity/footprint/silkscreen fixes and updates the stack-up (below) ahead of the next fabrication lot.
@@ -40,7 +40,7 @@ Through-hole, module-friendly PCB that routes power (including high-current 5 V 
 - Servo spikes can brown out logic: place bulk caps close to servo rail and Pi rail; keep sensor/logic decoupling close to modules.
 
 ## 6) PCB stack-up and grounding
-- Layer stack (Rev C — planned):
+- Layer stack (Rev C):
   - F.Silkscreen (top silk screen), color/material not specified
   - F.Paste (top solder paste)
   - F.Mask (top solder mask), thickness 0.01 mm, color not specified, material not specified, Er 3.3, LossTg 0
@@ -87,13 +87,5 @@ Through-hole, module-friendly PCB that routes power (including high-current 5 V 
 ## 12) Known issues and documentation notes
 - Schematic digital nets were mislabeled (all “DIGI”). Should be unique (DIGI1, DIGI2, ...). Correct labels in schematic/PCB before next spin.
 
-## 13) Future improvements
-- PMOS selection (placeholder): when selecting an ideal-diode/reverse-protection device, specify VDS margin, ID/power dissipation, RDS(on) at gate drive, thermal, and gate protection.
-- Optional reverse-polarity protection footprint (even if bypassed by default).
-- Current-shunt footprint for debugging servo/Pi current draw.
-
 ## 14) Design rationale (summary)
 THT + modules maximize assembly success and reworkability. A 4-layer stack with continuous ground planes lowers return-path impedance and noise. Routing uses 1.0 mm / 2.0 mm tracks and 1.2/0.6 mm / 1.6/0.8 mm vias, with wider copper, shorter runs, and via arrays on high-current paths. Bulk and decoupling capacitance supports transient-heavy loads; a fuse provides basic overcurrent safety. Known net-label issues are flagged for correction.
-
-## 15) Post-manufacture testing / revisions
-- Rev C: not fabricated yet. Once the new stack is locked, regenerate Gerbers/CPL/BOM and run bring-up per Rev B checklist. Track any stack-related changes in impedance/thermal performance during proto builds.

@@ -59,7 +59,6 @@ Primary power-entry protection board for a battery system. Originally documented
 - `Gerber/` + `Gerber.zip`
 - `BOM.csv`
 - `CPL.csv`
-- TODO: fabrication drawing/stackup, assembly drawings (top/bottom with polarity), units/origin note for PnP, DNP/variants list, schematic/layout PDF.
 
 ## 8) Build notes (important)
 - Place TVS and VIN bulk caps close to the input connector.
