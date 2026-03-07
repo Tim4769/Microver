@@ -57,6 +57,14 @@ Rev B is now a buck-only spin. The motor driver section was removed from the KiC
 - Output caps expanded for stability: C19, C20, C22, C23 added at VOUT.  
 - Added via shielding/stitching around the inductor and high di/dt switching loops (VIN, SW, PGND); keep the area directly under the inductor clear to minimize eddy losses.
 
+### Layout / manufacturing updates (2026-03-07)
+- Added operating-conditions comments to document expected voltage and current use conditions.
+- Removed thermal relief on intended high-current and ground copper connections.
+- Added mounting holes for mechanical fastening.
+- Set GND pour clearance to **0.10 mm** per IPC-2221A guidance.
+- Added return vias around signal routes to tighten the return path and reduce loop area.
+- External signal GND pin update is **not applicable** to this buck-only Rev B board because it does not expose external signal connections.
+
 ### Bench evidence of the Rev A issue (for traceability)
 - The miswired Rev A feedback caused FB to be driven only through C17. Bench measurements on 2026-02-05 showed VOUT rising with VIN instead of regulating near 5.3 V:
 

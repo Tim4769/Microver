@@ -53,5 +53,14 @@ Delta notes from Rev A → Rev B for the LM5122-Q1 boost converter. Updated 2026
 ### Layout / EMI
 - Added via shielding/stitching around the inductor and high di/dt switching loops (VIN, SW, PGND) to cut radiated EMI; keep the copper directly under the inductor free of vias to avoid eddy losses.
 
+### Layout / manufacturing updates (2026-03-07)
+- Added operating-conditions comments to document expected voltage and current use conditions.
+- Removed thermal relief on intended high-current and ground copper connections.
+- Added a GND pin on the external signal connection so every exported signal has a local ground reference.
+- Added mounting holes for mechanical fastening.
+- Set GND pour clearance to **0.10 mm** per IPC-2221A guidance.
+- Added Kelvin connection routing for sense paths.
+- Added return vias around signal routes to tighten the return path and reduce loop area.
+
 ## 4) Files
 - Rev B BOM/CPL/Gerbers not yet generated. Apply the above changes to the Rev A KiCad project, then regenerate outputs before fabrication.
