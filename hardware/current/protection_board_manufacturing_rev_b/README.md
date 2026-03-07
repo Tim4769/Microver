@@ -3,7 +3,7 @@
 **Owner / Contact:** Tim Wang — timwang007@outlook.com  
 **Revision:** Rev B  
 **Date:** 2026-01-26 (Rev B release)  
-**Last updated:** 2026-02-21 (documentation update)  
+**Last updated:** 2026-03-07 (layout/documentation update)  
 
 ## Overview
 Power-entry protection board for a 5S battery (≈18.5 V nominal) with ideal-diode reverse protection, inrush/hot-swap control, UVLO/OVLO, current limit, and PGD output.
@@ -36,6 +36,15 @@ Power-entry protection board for a 5S battery (≈18.5 V nominal) with ideal-dio
 - LM74700 charge-pump wiring corrected: ANODE and VCAP are no longer shorted together. The charge-pump capacitor is now connected between ANODE and VCAP as required.
 - Added bench root-cause documentation for the LM74700 charge-pump error and its electrical/thermal symptoms.
 - Added an explicit ANODE/VCAP charge-pump sanity check to the Rev B bench procedure (`test_procedure_rev_b.md`).
+
+### Current layout/documentation updates (2026-03-07)
+- Added operating-conditions comments to document expected voltage and current use conditions.
+- Removed thermal relief on intended high-current and ground copper connections.
+- Added a GND pin on the external signal connection so every exported signal has a local ground reference.
+- Added mounting holes for mechanical fastening.
+- Set GND pour clearance to **0.10 mm** per IPC-2221A guidance.
+- Added Kelvin connection routing for sense paths.
+- Added return vias around signal routes to tighten the return path and reduce loop area.
 
 ## Rationale for baseline Rev B changes (2026-01-26)
 - The new values adjust the LM5069 resistor network to set UVLO/OVLO thresholds for the actual 5S battery deployment as follows (V):

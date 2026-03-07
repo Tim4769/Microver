@@ -23,18 +23,26 @@ The goal is seamless source switchover while preventing backfeed into the inacti
 - Confirm MOSFET SOA and thermal rise at full expected load.
 - Verify startup and switchover behavior with the real upstream battery and boost converter.
 
-## 4) Files Included
+## 4) Current Layout/Documentation Updates (2026-03-07)
+- Added operating-conditions comments to document expected voltage and current use conditions.
+- Removed thermal relief on intended high-current and ground copper connections.
+- Added a GND pin on the external signal connection so every exported signal has a local ground reference.
+- Added mounting holes for mechanical fastening.
+- Set GND pour clearance to `0.10 mm` per IPC-2221A guidance.
+- Added return vias around signal routes to tighten the return path and reduce loop area.
+
+## 5) Files Included
 - `Gerber/`
 - `Gerber.zip`
 - `High Side OR ing-top-pos.csv`
 - `High Side OR ing-bottom-pos.csv`
 - `README.md`
 
-## 5) Bring-up Checklist
+## 6) Bring-up Checklist
 1) Power each input separately with a current-limited bench supply and confirm correct output behavior.  
 2) Test both inputs active and verify clean source handoff under no-load and loaded conditions.  
 3) Confirm no reverse current into the inactive source during all operating states.  
 
-## 6) References
+## 7) References
 - TI LM5050-1 datasheet (`lm5050-1.pdf`)
 - Local reference copy: `/Users/a1/Downloads/lm5050-1.pdf`
