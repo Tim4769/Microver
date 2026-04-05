@@ -4,6 +4,7 @@ Archived revisions are kept for traceability, historical test data, and rollback
 
 ## Archived board folders
 - `boost_manufacturing_rev_a/`
+- `boost_manufacturing_rev_b/`
 - `protection_board_manufacturing_rev_a/`
 - `pcb_manufacturing_rev_a/`
 - `pcb_manufacturing_rev_b/`

@@ -4,7 +4,7 @@ Integrated hardware + firmware stack for a small rover platform: power-entry pro
 
 ## Current Status (as of 2026-02-22)
 - Protection board: Rev B
-- Boost converter: Rev B
+- Boost converter: Rev B (archived)
 - Buck converter (standalone): Rev B
 - Motor driver board: Rev A
 - Rover main PCB with premade components: Rev C
@@ -43,7 +43,6 @@ Integrated hardware + firmware stack for a small rover platform: power-entry pro
 ## Hardware Navigation
 **Current (start here)**
 - `hardware/current/protection_board_manufacturing_rev_b/` — Latest protection board.
-- `hardware/current/boost_manufacturing_rev_b/` — Latest boost converter.
 - `hardware/current/buck_manufacturing_rev_b/` — Latest buck-only board.
 - `hardware/current/buck_motor_driver_manufacturing_rev_a/` — Latest combined buck + motor driver board.
 - `hardware/current/pcb_manufacturing_rev_c/` — Latest rover main PCB.
@@ -52,6 +51,7 @@ Integrated hardware + firmware stack for a small rover platform: power-entry pro
 
 **Archive (history)**
 - `hardware/archive/README.md` — Archived revisions and legacy boards.
+- `hardware/archive/boost_manufacturing_rev_b/` — Archived boost converter Rev B.
 
 ## How to Regenerate Manufacturing Files
 1. Open the board’s KiCad project (`*.kicad_pro`) in its folder.  
