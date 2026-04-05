@@ -1,5 +1,7 @@
 # Boost Converter (LM5122-Q1) — Rev B
 
+> ARCHIVED REVISION: This board has been moved under `hardware/archive/` for traceability and is not listed as an active hardware target.
+
 **Owner / Contact:** Tim Wang — timwang007@outlook.com  
 **Revision:** Rev B  
 **Date:** 2026-02-08  
