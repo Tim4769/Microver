@@ -1,10 +1,14 @@
 # Current Hardware (Start Here)
 
 These are the active board folders. Use these for new builds and current engineering updates.
+Each board folder keeps its working KiCad project in a local `Kicad_*` subdirectory next to generated manufacturing files when those outputs are available.
 
 - `protection_board_manufacturing_rev_b/`
+- `boost_manufacturing_rev_c/`
 - `buck_manufacturing_rev_c/`
-- `buck_motor_driver_manufacturing_rev_a/`
-- `pcb_manufacturing_rev_c/`
-- `brushlessmotor_testboard_manufacturing_rev_a/`
-- `lm5050_redundant_supply_manufacturing_rev_a/`
+- `High_Side_OR_ing_manufacturing_rev_a/`
+- `final_compute_STM32_rev_a/`
+- `final_compute_arduinos_rev_a/`
+- `final_control_board_rev_a/`
+
+Archived or superseded board folders live under `../archive/`.

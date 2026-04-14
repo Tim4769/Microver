@@ -2,14 +2,15 @@
 
 Integrated hardware + firmware stack for a small rover platform: power-entry protection, high-current motor drive, boost and buck converters, main rover PCB, and Arduino/Raspberry Pi control firmware. This repo packages manufacturing outputs (Gerbers/BOM/CPL), build/test notes, and firmware handoff material in one place.
 
-## Current Status (as of 2026-02-22)
+## Current Status (as of 2026-04-14)
 - Protection board: Rev B
-- Boost converter: Rev B (archived)
-- Buck converter (standalone): Rev B
-- Motor driver board: Rev A
-- Rover main PCB with premade components: Rev C
-- Brushless test board: Rev A
-- Redundant-supply ORing board: Rev A
+- Boost converter: Rev C
+- Buck converter (standalone): Rev C
+- High-side OR-ing board: Rev A
+- Final compute board (STM32): Rev A
+- Final compute board (dual Arduino): Rev A
+- Final control board: Rev A
+- Archived reference boards: buck + motor driver Rev A, rover main PCB Rev C, brushless test board Rev A
 - Firmware handoff docs: 2026 (`firmware/2026/docs/`)
 
 ## Repository Map (top level)
@@ -18,15 +19,15 @@ Integrated hardware + firmware stack for a small rover platform: power-entry pro
 - `firmware/2026/` — Handoff and integration docs for the newer motion stack.
 - `hardware/` — Board projects and release organization. Start with `hardware/current/README.md`; historical revisions live under `hardware/archive/`.
 - `assets/logos/` — Current logo assets; `assets/logos_legacy/` for older branding.
-- `archive/2024_code/` — Legacy Arduino/Raspberry Pi experiments and reference code.
+- `firmware/archive/2024_code/` — Legacy Arduino/Raspberry Pi experiments and reference code.
 - `firmware/2026/docs/rover-software-handoff.md` — Raspberry Pi + dual Arduino Nano Every motion-stack pin maps, messaging, and validation steps.
 - `LICENSE` — All rights reserved terms (permission required for any use).
-- `NOTICE` — Rights/usage reminder and owner contact.
 
 ## Quick Start by Role
 **Fabrication / PCB assembly**
 - Start in `hardware/current/` and use the latest revision folder for each board type.
-- Use the provided `Gerber/` + `Gerber.zip`, `BOM.csv`, and `CPL.csv` inside each board folder. Stack-up details are documented in each board README (common 4-layer HAL lead-free).
+- Each active board folder keeps its KiCad project in a local `Kicad_*` subdirectory; use that source tree for edits and regenerate manufacturing files in the same board folder.
+- Use the provided `Gerber/` + `Gerber.zip`, `BOM.csv`, and `CPL.csv` inside each board folder when those outputs have been generated. Stack-up details are documented in each board README (common 4-layer HAL lead-free).
 - For the power protection board, use `hardware/current/protection_board_manufacturing_rev_b/README.md`, then run `hardware/current/protection_board_manufacturing_rev_b/test_procedure_rev_b.md`.
 - Regenerate outputs after any edits in KiCad (Gerbers, BOM, CPL, assembly drawings).
 
@@ -43,15 +44,20 @@ Integrated hardware + firmware stack for a small rover platform: power-entry pro
 ## Hardware Navigation
 **Current (start here)**
 - `hardware/current/protection_board_manufacturing_rev_b/` — Latest protection board.
-- `hardware/current/buck_manufacturing_rev_b/` — Latest buck-only board.
-- `hardware/current/buck_motor_driver_manufacturing_rev_a/` — Latest combined buck + motor driver board.
-- `hardware/current/pcb_manufacturing_rev_c/` — Latest rover main PCB.
-- `hardware/current/brushlessmotor_testboard_manufacturing_rev_a/` — Latest brushless test board.
-- `hardware/current/lm5050_redundant_supply_manufacturing_rev_a/` — Latest LM5050 ORing board.
+- `hardware/current/boost_manufacturing_rev_c/` — Latest boost converter.
+- `hardware/current/buck_manufacturing_rev_c/` — Latest buck-only board.
+- `hardware/current/High_Side_OR_ing_manufacturing_rev_a/` — Latest LM5050 redundant-supply OR-ing board.
+- `hardware/current/final_compute_STM32_rev_a/` — STM32 compute board.
+- `hardware/current/final_compute_arduinos_rev_a/` — Dual-Arduino compute/control board.
+- `hardware/current/final_control_board_rev_a/` — Main control and distribution board.
 
 **Archive (history)**
 - `hardware/archive/README.md` — Archived revisions and legacy boards.
 - `hardware/archive/boost_manufacturing_rev_b/` — Archived boost converter Rev B.
+- `hardware/archive/buck_manufacturing_rev_b/` — Archived previous buck-only board.
+- `hardware/archive/buck_motor_driver_manufacturing_rev_a/` — Archived combined buck + motor driver board.
+- `hardware/archive/pcb_manufacturing_rev_c/` — Archived rover main PCB.
+- `hardware/archive/brushlessmotor_testboard_manufacturing_rev_a/` — Archived brushless test board.
 
 ## How to Regenerate Manufacturing Files
 1. Open the board’s KiCad project (`*.kicad_pro`) in its folder.  
