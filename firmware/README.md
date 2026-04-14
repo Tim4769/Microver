@@ -11,6 +11,7 @@ This folder is organized by year, then by function (controllers, diagnostics, do
 - `2025/docs/` - Firmware-facing notes.
 - `2025/references/` - Datasheets and component notes used by firmware bring-up.
 - `2026/docs/` - System handoff documentation.
+- `archive/2024_code/` - Legacy Arduino and Raspberry Pi experiments kept for reference.
 
 ## Duplicate check
 - A SHA-256 content check was run across all files under `firmware/`.
