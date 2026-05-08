@@ -1,0 +1,7 @@
+Reference,Qty,Value,Footprint,Datasheet,JLCPCB manufactur number
+"C1,C2",2,100nF,Capacitor_SMD:C_0805_2012Metric,~,C28233
+"J1,J2,J3",3,Conn_01x02_Pin,TerminalBlock_MetzConnect:TerminalBlock_MetzConnect_Type011_RT05502HBLC_1x02_P5.00mm_Horizontal,~,
+"J4,J5",2,Conn_01x01_Pin,Connector_PinHeader_1.00mm:PinHeader_1x01_P1.00mm_Vertical,~,
+"Q1,Q2",2,TPH2R608NH_L1Q kicad,Or ing_footprint:SOP Advance_TOS,https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#cha_MOSFETs,C5379811
+"R1,R2",2,100Ω,Capacitor_SMD:C_0603_1608Metric,~,C22775
+"U1,U2",2,LM5050MKX-1/NOPB,MK06A,https://www.ti.com/lit/gpn/lm5050-1,C473393

@@ -1,0 +1,17 @@
+Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
+C1,100nF,C_0805_2012Metric,201.2,-76.5,180,top
+C2,100nF,C_0805_2012Metric,198.3,-94.5,180,top
+FID1,Fiducial,Fiducial_0.5mm_Mask1.5mm,176,-96,0,top
+FID2,Fiducial,Fiducial_0.5mm_Mask1.5mm,201,-69,0,top
+FID3,Fiducial,Fiducial_0.5mm_Mask1.5mm,176,-69,0,top
+J1,Conn_01x02_Pin,TerminalBlock_MetzConnect_Type011_RT05502HBLC_1x02_P5.00mm_Horizontal,180,-84.5,-90,top
+J2,Conn_01x02_Pin,TerminalBlock_MetzConnect_Type011_RT05502HBLC_1x02_P5.00mm_Horizontal,179.8825,-73.5,-90,top
+J3,Conn_01x02_Pin,TerminalBlock_MetzConnect_Type011_RT05502HBLC_1x02_P5.00mm_Horizontal,204.1175,-86.5,90,top
+J4,Conn_01x01_Pin,PinHeader_1x01_P1.00mm_Vertical,195,-93,0,top
+J5,Conn_01x01_Pin,PinHeader_1x01_P1.00mm_Vertical,195,-83,0,top
+Q1,TPH2R608NH_L1Q kicad,SOP Advance_TOS,191.9464,-88.905,0,top
+Q2,TPH2R608NH_L1Q kicad,SOP Advance_TOS,191.9464,-78.365,0,top
+R1,100Ω,C_0603_1608Metric,197.775,-76.5,180,top
+R2,100Ω,C_0603_1608Metric,197.5,-91.725,90,top
+U1,LM5050MKX-1/NOPB,MK06A,191.1684,-83.049999,180,top
+U2,LM5050MKX-1/NOPB,MK06A,191.1684,-93.950001,180,top
