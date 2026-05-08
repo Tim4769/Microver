@@ -21,6 +21,7 @@ Integrated hardware + firmware stack for a small rover platform: power-entry pro
 - `assets/logos/` — Current logo assets; `assets/logos_legacy/` for older branding.
 - `firmware/archive/2024_code/` — Legacy Arduino/Raspberry Pi experiments and reference code.
 - `firmware/2026/docs/rover-software-handoff.md` — Raspberry Pi + dual Arduino Nano Every motion-stack pin maps, messaging, and validation steps.
+- `firmware/2026/docs/power-and-actuator-control-handoff.md` — Fused power path, buck/boost/OR-ing behavior, motor-driver grouping, servo/ESC outputs, and relevant IC details for software bring-up.
 - `LICENSE` — All rights reserved terms (permission required for any use).
 
 ## Quick Start by Role
@@ -69,6 +70,7 @@ Integrated hardware + firmware stack for a small rover platform: power-entry pro
 - Power-entry board (current): `hardware/current/protection_board_manufacturing_rev_b/test_procedure_rev_b.md`.  
 - Power-entry board (baseline history): `hardware/archive/protection_board_manufacturing_rev_a/test_procedure_rev_a.md`.  
 - Motion stack software: validation loop in `firmware/2026/docs/rover-software-handoff.md` (PING/ACK link, motor spin/encoders, servo sweeps, watchdog ideas).  
+- Power and actuator software handoff: `firmware/2026/docs/power-and-actuator-control-handoff.md` (fuse-to-buck/boost path, boost control, OR-ing, VNH5019 side grouping, servos, and ESC behavior).  
 - Add new test logs next to each board as `test_procedure_<rev>.md` or `validation_notes.md` for traceability.
 
 ## Naming & Organization
