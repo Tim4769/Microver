@@ -73,7 +73,14 @@ Rev A is the modular control and distribution board for the Microver 2026 final 
 - Verify `on/off_Boost`, `PGD_Prot`, and `fan_control` behavior at their headers before enabling downstream loads.
 - Monitor thermals on `U1` to `U4` under motor load.
 
-## 7) Files in this folder
+## 7) Field testing and competition notes
+- The original stack planned to boost the battery rail to 36 V for the drive motors, but this was not compatible with the motor-driver stage. Although the driver has an absolute maximum voltage rating around 41 V, it enters lockout around 26 V, so the 36 V rail should not be connected directly to the motor-driver supply.
+- A temporary boost-to-buck workaround was tested, with the boost output stepped back down to about 26 V before the motor drivers. During testing the buck stage thermally failed and caught fire, so the final competition setup removed both the boost and buck from the motor power path.
+- Removing the boost/buck path forced a motor plan change. The original plan used 24 V motors; the final setup returned to the 12 V kit motors. The nominal speed comparison used during bring-up was about 280 RPM for the 24 V motors and about 150 RPM for the 12 V kit motors, with the final setup relying on the 5S pack overvolting the 12 V motors to recover wheel speed, following the same approach used in prior competitions.
+- During the race, the rover moved briefly and then stopped when the Raspberry Pi to controller connection dropped. The leading hypotheses are a motor-current spike causing the 5 V rail to sag before the buck could respond, or a current-limit / one-input behavior in the automatic voltage switching module. The voltage-switching module current limit still needs to be checked.
+- During pre-competition PCB testing, one net on the second motor driver output was found to be wrong: a connection intended for `OUTA` was tied to `OUTB`. The field workaround was to cut the pin tied to the wrong net. Because it was not the main output pin, the PCB worked normally after the cut. This net should be corrected before the next board revision.
+
+## 8) Files in this folder
 - `BOM.csv` — Rev A bill of materials.
 - `CPL.csv` — Rev A centroid / pick-and-place file.
 - Gerbers and KiCad source are not currently checked into this folder. Add or regenerate them before fabrication.
