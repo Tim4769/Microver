@@ -46,4 +46,4 @@ Rev C is the next active boost-converter spin for the LM5122-Q1 power stage. It 
 
 ## 5) Files
 - Rev C BOM/CPL/Gerbers have not been regenerated yet. Regenerate all manufacturing outputs after the Rev C KiCad design is finalized.
-- This folder currently holds the Rev C documentation entry so the active hardware naming and README format stay aligned with the rest of `hardware/current/`.
+- This folder currently holds the Rev C documentation entry so the active hardware naming and README format stay aligned with the rest of `hardware/final/`.
