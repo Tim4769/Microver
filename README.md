@@ -6,27 +6,29 @@ Microver is a small rover project organized around three equally important parts
 
 This repository keeps the project work together: final board files, mechanical handoff material, future rover software space, PCB testing firmware, documentation, and shared project assets.
 
-## Competition Context
+## Project Context
 **Swiss Rover Challenge**
 - Format: teams of 3-4 high-school students build and operate Mars rover prototypes.
 - 2025 edition: Institut Le Rosey, Rolle, Switzerland, Saturday, May 31, 2025.
 - 2026 edition: College Alpin Beau Soleil, Villars-sur-Ollon, Switzerland, Sunday, May 3, 2026.
+
+**Team roles**
+- Tim / Tianran Wang - team lead and electrical engineer.
+- Lucas / Haolin Liu - software engineer.
+- Taiyo Maeto - software engineer.
+- Pat / Chawanvit Tangwongsiri - mechanical engineer.
+- Steven Bang - mechanical engineer.
 
 **Microver results**
 - 2025 Swiss Rover Challenge: 3rd place.
 - 2026 Swiss Rover Challenge: 1st place.
 - These results are project context only; folder names stay organized by engineering function.
 
-**microver.ch context**
-- microver.ch is an educational robotics initiative focused on project-based learning.
-- The wider project teaches students to design, produce, assemble, and program their own robots.
-- The kit and learning path are built around practical robotics skills including Arduino microcontrollers, Raspberry Pi computers, and 3D printing.
-
 ## Project Parts
 **Electronics**
 - Purpose: power entry, conversion, motor drive, compute interconnects, and final rover control boards.
 - Start here: `hardware/final/README.md`.
-- Supporting material: `flow charts/README.md` for power-system diagrams.
+- Supporting material: `flow_charts/README.md` for power-system diagrams.
 - Completed status: active board work lives under `hardware/final/`; older spins remain under `hardware/archive/`.
 
 **Mechanical**
@@ -36,7 +38,7 @@ This repository keeps the project work together: final board files, mechanical h
 - Completed status: mechanical handoff area is tracked and ready for final CAD, drawings, assembly notes, and mount details.
 
 **Software**
-- Purpose: Arduino/Raspberry Pi control firmware, diagnostics, pin maps, messaging, and handoff documentation.
+- Purpose: Raspberry Pi control software, Arduino motor/encoder firmware, diagnostics, pin maps, messaging, and handoff documentation.
 - Start here: `firmware/README.md`.
 - Supporting material: `pcb_testing_firmware/README.md` for electronics bring-up and PCB validation sketches.
 - Current status: `firmware/` is reserved for the rover software lead to update later; existing Arduino test code lives in `pcb_testing_firmware/` and is not the competition software.
@@ -61,13 +63,15 @@ This repository keeps the project work together: final board files, mechanical h
 - `pcb_testing_firmware/` contains PCB testing, electronics bring-up sketches, diagnostics, and references.
 - `pcb_testing_firmware/archive/2024_code/` contains older experiments for historical reference.
 - Existing test sketches should be treated as board validation tools, not as the final competition software stack.
+- The final presentation describes the competition software architecture as a Raspberry Pi Python host communicating with two Arduino Nano Every boards over serial: one for motors/servos and one for encoder data.
+- The planned control stack included joystick remote control, live camera feed, low-level PID, Pure Pursuit, and LiDAR/MCL localization work.
 
 ## Repository Map
 **Electronics**
 - `hardware/` - Board projects and release organization.
 - `hardware/final/` - Latest board revisions for the completed 2026 rover.
 - `hardware/archive/` - Historical board revisions and rollback references.
-- `flow charts/` - Exported power-system flow-chart PNGs.
+- `flow_charts/` - Exported power-system flow-chart PNGs.
 
 **Mechanical**
 - `mechanical/` - Mechanical handoff area for CAD, drawings, mounts, and assembly notes.
@@ -80,6 +84,7 @@ This repository keeps the project work together: final board files, mechanical h
 - `pcb_testing_firmware/archive/` - Legacy experiments and older code snapshots.
 
 **Shared Assets**
+- `Microver_presentation_final.pdf` - Final presentation with team roles, project timeline, and system overview.
 - `logo/` - Current and legacy logo assets.
 - `jingle/` - Microver jingle audio files.
 - `photos/` - Project photos from design, build, testing, and competition seasons.
