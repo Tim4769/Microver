@@ -3,7 +3,7 @@ import threading
 
 os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "1"
 
-from . import services
+from ..app import services
 
 if __name__ == "__main__":
     services = {
