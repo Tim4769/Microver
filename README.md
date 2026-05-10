@@ -6,7 +6,7 @@ Microver is a small rover project organized around three equally important parts
 
 This repository keeps the project work together: final board files, mechanical handoff material, future rover software space, PCB testing firmware, documentation, and shared project assets.
 
-## Project Context
+## Project 
 **Swiss Rover Challenge**
 - Format: teams of 3-4 high-school students build and operate Mars rover prototypes.
 - 2025 edition: Institut Le Rosey, Rolle, Switzerland, Saturday, May 31, 2025.
@@ -15,14 +15,13 @@ This repository keeps the project work together: final board files, mechanical h
 **Team roles**
 - Tim / Tianran Wang - team lead and electrical engineer.
 - Lucas / Haolin Liu - software engineer.
-- Taiyo Maeto - software engineer.
+- Taiyo - software engineer.
 - Pat / Chawanvit Tangwongsiri - mechanical engineer.
 - Steven Bang - mechanical engineer.
 
-**Microver results**
+**Team results**
 - 2025 Swiss Rover Challenge: 3rd place.
 - 2026 Swiss Rover Challenge: 1st place.
-- These results are project context only; folder names stay organized by engineering function.
 
 ## Project Parts
 **Electronics**
@@ -64,7 +63,7 @@ This repository keeps the project work together: final board files, mechanical h
 - `pcb_testing_firmware/archive/2024_code/` contains older experiments for historical reference.
 - Existing test sketches should be treated as board validation tools, not as the final competition software stack.
 - The final presentation describes the competition software architecture as a Raspberry Pi Python host communicating with two Arduino Nano Every boards over serial: one for motors/servos and one for encoder data.
-- The planned control stack included joystick remote control, live camera feed, low-level PID, Pure Pursuit, and LiDAR/MCL localization work.
+- The planned control stack included joystick remote control, live camera feed, low-level PID, Pure Pursuit, and AMCL localization using LIDAR.
 
 ## Repository Map
 **Electronics**
