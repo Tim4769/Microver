@@ -2,150 +2,59 @@
 
 ![Microver rover](photos/2025-2026/IMG_1173.JPG)
 
-Microver is a small rover project organized around three equally important parts: electronics, mechanical design, and software. The project was built for the Swiss Rover Challenge, Switzerland's high-school robotics championship where teams design, build, and operate Mars rover prototypes.
+Microver is a compact rover built for the Swiss Rover Challenge. This repository collects the project's electronics, mechanical CAD, software scaffold, PCB test firmware, photos, and shared assets in one place.
 
-This repository keeps the project work together: final board files, mechanical handoff material, future rover software space, PCB testing firmware, documentation, and shared project assets.
+## Project
 
-## Project 
-**Swiss Rover Challenge**
-- Format: teams of 3-4 high-school students build and operate Mars rover prototypes.
-- 2025 edition: Institut Le Rosey, Rolle, Switzerland, Saturday, May 31, 2025.
-- 2026 edition: College Alpin Beau Soleil, Villars-sur-Ollon, Switzerland, Sunday, May 3, 2026.
+- **Competition:** Swiss Rover Challenge, Switzerland's rover competition for teams of 5 high school students.
+- **2025 result:** 3rd place.
+- **2026 result:** 1st place.
+- **Main disciplines:** electronics, mechanical design, and software.
 
-**Team roles**
-- Tim / Tianran Wang - team lead and electrical engineer.
-- Lucas / Haolin Liu - software engineer.
-- Taiyo - software engineer.
-- Pat / Chawanvit Tangwongsiri - mechanical engineer.
-- Steven Bang - mechanical engineer.
+## Start Here
 
-**Team results**
-- 2025 Swiss Rover Challenge: 3rd place.
-- 2026 Swiss Rover Challenge: 1st place.
-
-## Project Parts
-**Electronics**
-- Purpose: power entry, conversion, motor drive, compute interconnects, and final rover control boards.
-- Start here: `hardware/final/README.md`.
-- Supporting material: `flow_charts/README.md` for power-system diagrams.
-- Completed status: active board work lives under `hardware/final/`; older spins remain under `hardware/archive/`.
-
-**Mechanical**
-- Purpose: CAD, mounting, chassis, packaging, and physical integration for the rover.
-- Start here: `mechanical/README.md`.
-- Supporting material: board photos and physical reference files inside the hardware folders.
-- Completed status: mechanical handoff area is tracked and ready for final CAD, drawings, assembly notes, and mount details.
-
-**Software**
-- Purpose: Raspberry Pi control software, Arduino motor/encoder firmware, diagnostics, pin maps, messaging, and handoff documentation.
-- Start here: `firmware/README.md`.
-- Supporting material: `pcb_testing_firmware/README.md` for electronics bring-up and PCB validation sketches.
-- Current status: `firmware/` is reserved for the rover software lead to update later; existing Arduino test code lives in `pcb_testing_firmware/` and is not the competition software.
+| Area | Path | Contents |
+|---|---|---|
+| Electronics | `hardware/final/README.md` | Active PCB revisions, KiCad projects, manufacturing outputs, and validation notes. |
+| Mechanical | `mechanical/README.md` | Rover assemblies, wheel pods, chassis parts, mechanisms, mounts, and STEP exports. |
+| Software | `software/` | Python rover-control scaffold with camera and control services. |
+| PCB test firmware | `hardware/pcb_testing_firmware/README.md` | Arduino sketches and docs for board bring-up and electronics validation. |
+| Power diagrams | `hardware/flow_charts/README.md` | Power-system flow charts and supporting diagrams. |
 
 ## Current Snapshot
+
 **Electronics**
-- Protection board: Rev B.
-- Boost converter: Rev C.
-- Buck converter: Rev C.
-- High-side OR-ing board: Rev A.
-- Final compute boards: STM32 Rev A and dual-Arduino Rev A.
-- Final control board: Rev A.
+- Manufacturing-ready PCB work is under `hardware/final/`; archived board spins live under `hardware/archive/`.
+- The active stack covers protection Rev B, boost Rev C, buck Rev C, high-side OR-ing Rev A, compute Rev A, and final control Rev A.
 
 **Mechanical**
-- Mechanical folder is tracked and documented.
-- `mechanical/placeholder.rtf` is present until final CAD or drawing files are added.
-- Future mechanical files should keep source CAD, exported drawings, assembly notes, and mounting references together.
-- Mechanical integration should stay aligned with board footprints, connector access, and software sensor/actuator assumptions.
+- Modular CAD lives in `mechanical/assemblies/` and `mechanical/components/`.
+- The rover uses field-serviceable wheel pods, aluminium extrusion rails, custom 3D-printed parts, and integrated mounts for electronics, sensors, and mechanisms.
 
 **Software**
-- `firmware/` is a placeholder for the future rover software maintained by the software lead.
-- `pcb_testing_firmware/` contains PCB testing, electronics bring-up sketches, diagnostics, and references.
-- `pcb_testing_firmware/archive/2024_code/` contains older experiments for historical reference.
-- Existing test sketches should be treated as board validation tools, not as the final competition software stack.
-- The final presentation describes the competition software architecture as a Raspberry Pi Python host communicating with two Arduino Nano Every boards over serial: one for motors/servos and one for encoder data.
-- The planned control stack included joystick remote control, live camera feed, low-level PID, Pure Pursuit, and AMCL localization using LIDAR.
+- `software/` is the autonomy-ready rover software workspace for control, camera, perception, navigation, and system integration.
+- `hardware/pcb_testing_firmware/` contains electronics bring-up and validation sketches only; it is separate from the final software stack.
 
 ## Repository Map
-**Electronics**
-- `hardware/` - Board projects and release organization.
-- `hardware/final/` - Latest board revisions for the completed 2026 rover.
-- `hardware/archive/` - Historical board revisions and rollback references.
-- `flow_charts/` - Exported power-system flow-chart PNGs.
 
-**Mechanical**
-- `mechanical/` - Mechanical handoff area for CAD, drawings, mounts, and assembly notes.
-
-**Software**
-- `firmware/` - Future rover software folder for the software lead.
-- `pcb_testing_firmware/` - PCB testing and electronics bring-up firmware.
-- `pcb_testing_firmware/2026/` - Final-stack board validation sketches and handoff notes.
-- `pcb_testing_firmware/2025/` - Earlier Arduino testing sketches, diagnostics, docs, and references.
-- `pcb_testing_firmware/archive/` - Legacy experiments and older code snapshots.
-
-**Shared Assets**
-- `Microver_presentation_final.pdf` - Final presentation with team roles, project timeline, and system overview.
+- `hardware/` - PCB designs, manufacturing files, archived board revisions, power diagrams, and PCB validation firmware.
+- `mechanical/` - CAD assemblies, exported STEP components, manufacturing notes, and mechanical integration references.
+- `software/` - Raspberry Pi control software scaffold and future rover software workspace.
+- `photos/` - Build, test, and competition photos.
 - `logo/` - Current and legacy logo assets.
-- `jingle/` - Microver jingle audio files.
-- `photos/` - Project photos from design, build, testing, and competition seasons.
-- `LICENSE` - All rights reserved terms.
-
-## Quick Start
-**Electronics**
-- Start in `hardware/final/` and choose the latest revision folder for the board you are building, reviewing, or documenting.
-- Use each board's local `Kicad_*` folder for schematic/layout changes.
-- Use `Gerber/`, `Gerber.zip`, `BOM.csv`, and `CPL.csv` when generated manufacturing outputs are available.
-- For protection-board validation, use `hardware/final/protection_board_manufacturing_rev_b/test_procedure_rev_b.md`.
-
-**Mechanical**
-- Start in `mechanical/` and replace the placeholder with source CAD, exported drawings, or assembly notes when available.
-- Keep mechanical files organized by rover subsystem or assembly if the folder grows.
-- Check board dimensions, mounting holes, connector access, and cable paths against the active electronics folders.
-- Add assembly notes next to the related CAD/drawing files so the physical build is traceable.
-
-**Software**
-- Start in `firmware/` when adding the future rover software.
-- Use `pcb_testing_firmware/2026/docs/board-validation-software-handoff.md` only for board validation pin maps and test flow.
-- Use `pcb_testing_firmware/2026/docs/power-and-actuator-control-handoff.md` for power-control and actuator bring-up notes.
-- Run focused test sketches from `pcb_testing_firmware/2026/controllers/` when validating PCBs or electronics.
-
-## Detailed Navigation
-**Electronics**
-- `hardware/final/protection_board_manufacturing_rev_b/` - Latest protection board.
-- `hardware/final/boost_manufacturing_rev_c/` - Latest boost converter.
-- `hardware/final/buck_manufacturing_rev_c/` - Latest buck converter.
-- `hardware/final/High_Side_OR_ing_manufacturing_rev_a/` - Latest high-side OR-ing board.
-- `hardware/final/final_compute_STM32_rev_a/` - STM32 compute board.
-- `hardware/final/final_compute_arduinos_rev_a/` - Dual-Arduino compute board.
-- `hardware/final/final_control_board_rev_a/` - Main control and distribution board.
-
-**Mechanical**
-- `mechanical/README.md` - Mechanical folder guide.
-- `mechanical/placeholder.rtf` - Temporary tracked placeholder.
-- Board photos in `hardware/final/*/Photo.JPG` are useful physical references for mechanical integration.
-
-**Software**
-- `firmware/README.md` - Future rover software folder guide.
-- `pcb_testing_firmware/2026/controllers/` - Final-stack PCB testing sketches.
-- `pcb_testing_firmware/2026/docs/board-validation-software-handoff.md` - Board validation pin maps, serial commands, and test flow.
-- `pcb_testing_firmware/2026/docs/power-and-actuator-control-handoff.md` - Power and actuator bring-up notes.
-- `pcb_testing_firmware/2025/diagnostics/` - Earlier focused subsystem checks.
+- `jingle/` - Project audio assets.
+- `Microver_presentation_final.pdf` - Final presentation and system overview.
 
 ## Maintenance Notes
-**Electronics**
-- After KiCad edits, regenerate Gerbers, drill files, BOM, CPL, and assembly drawings as needed.
-- Keep generated outputs inside the relevant board folder.
-- Add test logs as `test_procedure_<rev>.md` or `validation_notes.md`.
 
-**Mechanical**
-- Keep editable source files and exported review files together.
-- Record fit, clearance, mounting, and assembly changes in README or notes files near the CAD.
-- When electronics move or connector orientation changes, update mechanical references at the same time.
-
-**Software**
-- Keep future rover software under `firmware/`.
-- Keep PCB validation sketches under `pcb_testing_firmware/`.
-- Keep pin-map changes synchronized with the hardware and mechanical layout.
-- Document PCB test protocol, baud-rate, actuator, and watchdog changes in `pcb_testing_firmware/2026/docs/`.
+- Keep generated PCB outputs inside the relevant board revision folder.
+- Update CAD references when board dimensions, connector orientation, sensor placement, or mounting details change.
+- Keep editable CAD, exported review files, and assembly notes together.
+- Keep PCB validation sketches separate from final rover software.
+- Update this README when top-level folders move or new subsystem entry points are added.
 
 ## License / Contact
-All rights reserved. No permission is granted to use, copy, modify, or distribute this repository or its contents without prior written consent. See `LICENSE` for exact terms. Contact: Tim Wang - timwang007@outlook.com.
+
+All rights reserved. No permission is granted to use, copy, modify, or distribute this repository or its contents without prior written consent. See `LICENSE` for exact terms.
+
+Contact: Tim Wang - timwang007@outlook.com.

@@ -16,7 +16,7 @@ This folder contains Arduino sketches, diagnostics, handoff notes, and reference
 
 ## Notes
 - Use this folder when validating boards, pin maps, drivers, servos, or power-control behavior.
-- Put future rover software in `../firmware/`, not here.
+- Put future rover software in `../../software/`, not here.
 - A SHA-256 content check was previously run across the testing firmware files; no duplicate file contents were found at that time.
 
 ## Path migration map
