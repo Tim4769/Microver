@@ -1,4 +1,0 @@
-(sym_lib_table
-  (version 7)
-  (lib (name "Microver2026_Modular_Library")(type "KiCad")(uri "${KIPRJMOD}/Microver2026_Modular_Library.kicad_sym")(options "")(descr ""))
-)

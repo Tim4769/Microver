@@ -1,4 +1,0 @@
-(fp_lib_table
-  (version 7)
-  (lib (name "microver footprint Library")(type "KiCad")(uri "${KIPRJMOD}/microver footprint Library.pretty")(options "")(descr ""))
-)
