@@ -1,3 +1,7 @@
+<<<<<<< HEAD
 # macOS Finder metadata
 .DS_Store
 **/.DS_Store
+=======
+**/__pycache__
+>>>>>>> 239cfc1 (Pushing code)
