@@ -1,0 +1,41 @@
+Arduino Rover PCB Notes
+-----------------------
+Overview
+- PCB distributes power/signals to two Arduino boards, six rover motors (via external drivers), four servos, LiDAR, sensors, and a Raspberry Pi 5 V rail.
+- All components are through-hole for hand assembly and field repair; board area grows but process stays low-risk.
+
+Design goals/constraints
+- Goals: easy soldering, robust servo/Pi power delivery, low-noise grounds, modular headers.
+- Constraints: THT-only build, reliance on off-the-shelf modules limits miniaturization but speeds bring-up.
+
+System architecture
+- Two Arduino Nanos: first handles six motor drivers + encoders, second controls four MG996R servos (broom, flag, auxiliary).
+- Three 5 A buck regulators: (1) servo rail, (2) LiDAR + second Arduino, (3) Raspberry Pi.
+
+Power + decoupling strategy
+- Bulk cap near source: 2200 µF to absorb low-frequency ripple.
+- Additional 220 µF + 0.1 µF per rail to tame transients and high-frequency noise; place close to loads (servos, Pi, sensor modules).
+- Servo spikes can brown out logic; keep servo returns/twisted loops isolated from sensor/logic grounds when routing.
+
+Stack-up and routing
+- 4-layer: F.Cu signal (1 oz), In1.Cu GND (0.5 oz), In2.Cu GND (0.5 oz), B.Cu power (1 oz).
+- Maintain solid GND planes for low-impedance return paths; avoid splits unless return current analysis is done.
+- Track/via rules: signals 1.0 mm traces w/ 1.2/0.6 mm vias; power 2.0 mm traces w/ 1.6/0.8 mm vias. Use multiple vias in parallel for high-current transitions.
+
+Protection + connectors
+- Fuse present on main input for overcurrent protection.
+- Reverse polarity protection footprint optional (removed due to XT30 orientation confidence); consider leaving pads/jumper to re-add later.
+- Label headers with signal/voltage/ground and mark pin 1; pin headers break out servos, LiDAR, sensors, Pi power, etc.
+
+Assembly / bring-up notes
+- Run ERC/DRC before ordering. Verify connector footprints/orientation.
+- Power-up sequence: current-limited bench supply → validate buck outputs no-load → add Arduino/sensors → add servos/Pi while monitoring droop.
+- Check fuse rating, regulator temps, high-current traces during load testing.
+
+Known issues + future improvements
+- Schematic digital nets currently mislabeled (all "DIGI"); need unique names (DIGI1, DIGI2, ...).
+- PMOS selection for ideal diode / reverse protection TBD; specify VDS, ID, RDS(on), thermal handling, gate protection when completing.
+- Consider extra footprints: test points per rail, optional reverse polarity device, current-shunt footprints.
+
+Rev A post-manufacture fix
+- Found +18V rail short due to rotated polarized capacitors (pads tied to wrong nets). Resolved by rotating caps, correcting footprints, verifying routing, and fixing silkscreen polarity markings.
