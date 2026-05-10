@@ -3,7 +3,7 @@
 Use this index to avoid opening stale revisions by accident.
 
 ## Start here
-- `current/README.md` - Latest board revisions (active work only).
+- `final/README.md` - Latest board revisions (active work only).
 
 ## Historical revisions
 - `archive/README.md` - Archived revisions and legacy boards.

@@ -11,4 +11,6 @@ Each board folder keeps its working KiCad project in a local `Kicad_*` subdirect
 - `final_compute_arduinos_rev_a/`
 - `final_control_board_rev_a/`
 
+Field testing and competition notes for the motor-driver voltage mismatch, boost/buck removal, motor change, Raspberry Pi power-drop hypotheses, and second motor-driver `OUTA` / `OUTB` rework are recorded in `final_control_board_rev_a/README.md`.
+
 Archived or superseded board folders live under `../archive/`.
