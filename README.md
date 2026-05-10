@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Microver
 
 ![Microver rover](photos/2025-2026/IMG_1173.JPG)
@@ -149,3 +150,10 @@ This repository keeps the project work together: final board files, mechanical h
 
 ## License / Contact
 All rights reserved. No permission is granted to use, copy, modify, or distribute this repository or its contents without prior written consent. See `LICENSE` for exact terms. Contact: Tim Wang - timwang007@outlook.com.
+=======
+# microver
+
+```bash
+make
+```
+>>>>>>> 239cfc1 (Pushing code)
