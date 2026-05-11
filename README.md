@@ -1,6 +1,6 @@
 # Microver
 
-![Microver rover](photos/2025-2026/IMG_1173.JPG)
+![Microver rover](photos/2025-2026/DSC01670.png)
 
 Microver is a compact rover built for the Swiss Rover Challenge. This repository collects the project's electronics, mechanical CAD, software scaffold, PCB test firmware, photos, and shared assets in one place.
 
