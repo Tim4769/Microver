@@ -4,6 +4,9 @@
 - **Revision:** Rev A
 - **Project:** Project CK
 
+## Photo
+<img src="Photo.JPG" alt="Final Compute Board Dual Arduino Rev A board photo" width="600">
+
 ## 1) Overview
 Rev A is the dual-Arduino compute/control board for the Microver 2026 final hardware stack. It carries `Main_Arduino_Nano_Every` and `Sub_Arduino_Nano_Every` modules and mates to the final control board through the shared `Left` / `Right` interconnects.
 

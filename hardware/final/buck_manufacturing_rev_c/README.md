@@ -5,6 +5,16 @@
 **Date:** 2026-04-05  
 **Project:** Project CK  
 
+## Photos
+Thermal test result photos:
+
+| Load | 10 min | 20 min | 30 min |
+| --- | --- | --- | --- |
+| 5 A | <img src="Test%20results/Thermal/5A/After%2010mins.JPG" alt="Buck Rev C thermal test at 5 A after 10 minutes" width="180"> | <img src="Test%20results/Thermal/5A/After%2020mins.JPG" alt="Buck Rev C thermal test at 5 A after 20 minutes" width="180"> | <img src="Test%20results/Thermal/5A/After%2030mins.JPG" alt="Buck Rev C thermal test at 5 A after 30 minutes" width="180"> |
+| 7.5 A | <img src="Test%20results/Thermal/7.5A/After%2010mins.JPG" alt="Buck Rev C thermal test at 7.5 A after 10 minutes" width="180"> | <img src="Test%20results/Thermal/7.5A/After%2020mins.JPG" alt="Buck Rev C thermal test at 7.5 A after 20 minutes" width="180"> | <img src="Test%20results/Thermal/7.5A/After%2030mins.JPG" alt="Buck Rev C thermal test at 7.5 A after 30 minutes" width="180"> |
+| 10 A | <img src="Test%20results/Thermal/10A/After%2010mins.JPG" alt="Buck Rev C thermal test at 10 A after 10 minutes" width="180"> | <img src="Test%20results/Thermal/10A/After%2020mins.JPG" alt="Buck Rev C thermal test at 10 A after 20 minutes" width="180"> | <img src="Test%20results/Thermal/10A/After%2030mins.JPG" alt="Buck Rev C thermal test at 10 A after 30 minutes" width="180"> |
+| 12.5 A | <img src="Test%20results/Thermal/12.5A/After%2010mins.JPG" alt="Buck Rev C thermal test at 12.5 A after 10 minutes" width="180"> | <img src="Test%20results/Thermal/12.5A/After%2020mins.JPG" alt="Buck Rev C thermal test at 12.5 A after 20 minutes" width="180"> | <img src="Test%20results/Thermal/12.5A/After%2030mins.JPG" alt="Buck Rev C thermal test at 12.5 A after 30 minutes" width="180"> |
+
 ## 1) Scope
 Rev C is the next buck-only spin. It carries forward the Rev B buck architecture and prior feedback/routing fixes, then adds output-voltage trim, higher-current MOSFET staging, gate damping, RC snubbing, and updated via details. Use the Rev A folder only for the older combined VNH5019 + buck board architecture and pinout.
 

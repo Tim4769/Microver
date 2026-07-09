@@ -5,6 +5,9 @@
 **Date:** 2026-01-26 (Rev B release)  
 **Last updated:** 2026-03-07 (layout/documentation update)  
 
+## Photo
+<img src="Photo.JPG" alt="Power Protection Board Rev B board photo" width="600">
+
 ## Overview
 Power-entry protection board for a 5S battery (≈18.5 V nominal) with ideal-diode reverse protection, inrush/hot-swap control, UVLO/OVLO, current limit, and PGD output.
 

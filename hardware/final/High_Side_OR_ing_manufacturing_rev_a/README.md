@@ -5,6 +5,9 @@
 **Revision:** Rev A  
 **Date:** 2026-02-11
 
+## Photo
+<img src="Photo.JPG" alt="High Side ORing Rev A board photo" width="600">
+
 ## 1) Overview
 This board implements the LM5050-1 Typical Redundant Supply Configuration to auto-select between two power sources for one output rail:
 - `18 V` battery input

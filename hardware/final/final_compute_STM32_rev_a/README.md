@@ -4,6 +4,9 @@
 - **Revision:** Rev A
 - **Project:** Project CK
 
+## Photo
+<img src="Photo.JPG" alt="Final Compute Board STM32 Rev A board photo" width="600">
+
 ## 1) Overview
 Rev A is the STM32 compute-board option for the Microver 2026 final hardware stack. The KiCad project is titled `Compute unit STM32G4RCT6` and uses the same `Left` / `Right` board-to-board header concept as the final control board.
 

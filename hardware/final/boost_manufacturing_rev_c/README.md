@@ -5,6 +5,9 @@
 **Date:** 2026-04-13  
 **Project:** Project CK  
 
+## Photo
+<img src="Photo.JPG" alt="Boost Converter Rev C board photo" width="600">
+
 ## 1) Scope
 Rev C is the next active boost-converter spin for the LM5122-Q1 power stage. It carries forward the Rev B architecture and prior value/layout updates, then adds more MOSFET capacity on both switching sides plus per-gate damping so the board can handle higher current with better current sharing and switching control.
 
