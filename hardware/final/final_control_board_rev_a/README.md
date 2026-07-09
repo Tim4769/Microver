@@ -5,6 +5,9 @@
 **Date:** 2026-04-12  
 **Project:** Project CK
 
+## Photo
+<img src="Photo.JPG" alt="Final Control Board Rev A board photo" width="600">
+
 ## 1) Overview
 Rev A is the modular control and distribution board for the Microver 2026 final hardware stack. It mates to the `Left` / `Right` 2x10 headers used by the final compute boards, carries two integrated motor-driver channels, provides local 3.3 V regulation and rail indicators, and breaks out the rover harnesses for six drive connectors, four servos, LiDAR, Raspberry Pi UART/power, and board-level power-control signals. The board also includes mounting holes for attaching the buck, boost, OR-ing, and protection boards, plus board-to-board power pads / wire points so those auxiliary PCBs can connect back into the main control board.
 
@@ -83,4 +86,6 @@ Rev A is the modular control and distribution board for the Microver 2026 final 
 ## 8) Files in this folder
 - `BOM.csv` — Rev A bill of materials.
 - `CPL.csv` — Rev A centroid / pick-and-place file.
-- Gerbers and KiCad source are not currently checked into this folder. Add or regenerate them before fabrication.
+- `Gerber/` and `Gerber.zip` — Rev A fabrication outputs.
+- `Kicad_Microver2026_Modular_Final/` — KiCad source project and local project files.
+- `Photo.JPG` — Board photo/reference image.

@@ -4,6 +4,11 @@
 **Production status:** Not produced / not fabricated  
 **Project:** Project CK
 
+## Photo
+**Note:** Rev B was not produced or fabricated. This photo shows the Rev A final control board for visual reference only.
+
+<img src="Photo.JPG" alt="Final Control Board Rev A photo used as visual reference for unproduced Rev B" width="600">
+
 ## 1) Overview
 This folder contains the KiCad source for an unproduced Rev B update of the Microver 2026 final control board.
 
@@ -21,5 +26,6 @@ The final driver selection should be checked against the required motor voltage,
 
 ## 3) Files in this folder
 - `Kicad_Microver2026_Modular_Final/` - KiCad source project for the unproduced Rev B control board.
+- `Photo.JPG` - Rev A board photo, included only as a visual reference because Rev B was not produced.
 
 Regenerate and review all manufacturing outputs, BOM, CPL, and design-rule checks before considering any future fabrication.
