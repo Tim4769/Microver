@@ -6,6 +6,10 @@
 **Project:** Project CK  
 
 ## Photos
+Board photo:
+
+<img src="Photo.JPG" alt="Buck Rev C board photo" width="600">
+
 Thermal test result photos:
 
 | Load | 10 min | 20 min | 30 min |
