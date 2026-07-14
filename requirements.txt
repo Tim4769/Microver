@@ -1,0 +1,2 @@
+# Keep the repository-root install path aligned with the software manifest.
+-r software/requirements.txt
