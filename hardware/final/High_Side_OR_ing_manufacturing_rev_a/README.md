@@ -39,6 +39,7 @@ The goal is seamless source switchover while preventing backfeed into the inacti
 - `Gerber.zip`
 - `High Side OR ing-top-pos.csv`
 - `High Side OR ing-bottom-pos.csv`
+- `High Side OR ing_3D.step` — 3D STEP model of the assembled PCB.
 - `README.md`
 
 ## 6) Bring-up Checklist

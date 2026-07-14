@@ -22,6 +22,7 @@ Mate this board only after confirming `J14` and `J15` orientation against `../fi
 - `CPL.csv` - Rev A centroid / pick-and-place file.
 - `Gerber/` and `Gerber.zip` - Rev A fabrication outputs.
 - `Kicad_Microver2026_STM32_Control/` - KiCad source project and local libraries.
+- `Microver2026_STM32_Control_3D.step` - 3D STEP model of the assembled PCB.
 - `Photo.JPG` - Board photo/reference image.
 
 ## 4) Bring-up notes

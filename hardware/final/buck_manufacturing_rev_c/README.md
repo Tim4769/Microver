@@ -69,5 +69,6 @@ Rev C is the next buck-only spin. It carries forward the Rev B buck architecture
 - TI gate resistor application note: <https://www.ti.com/lit/ab/slla385a/slla385a.pdf>
 
 ## 5) Files
+- `Buck_3D.step` — 3D STEP model of the assembled PCB.
 - Rev C BOM/CPL/Gerbers have not been regenerated yet. Regenerate all manufacturing outputs from `Buck_kicad/` before fabrication.
 - This folder contains the Rev C KiCad source, local symbol/footprint libraries, calculator workbook, and Rev C bench test procedure.

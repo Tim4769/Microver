@@ -90,4 +90,5 @@ Rev A is the modular control and distribution board for the Microver 2026 final 
 - `CPL.csv` — Rev A centroid / pick-and-place file.
 - `Gerber/` and `Gerber.zip` — Rev A fabrication outputs.
 - `Kicad_Microver2026_Modular_Final/` — KiCad source project and local project files.
+- `Microver2026_Modular_Final_3D.step` — 3D STEP model of the assembled PCB.
 - `Photo.JPG` — Board photo/reference image.
