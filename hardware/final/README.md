@@ -3,6 +3,12 @@
 These are the active board folders. Use these for new builds and current engineering updates.
 Each board folder keeps its working KiCad project in a local `Kicad_*` subdirectory next to generated manufacturing files when those outputs are available.
 
+## Complete Board Assembly
+
+<img src="final_control_board_rev_a/Photo.JPG" alt="Complete Microver hardware stack with every board assembled together" width="600">
+
+*This photo shows every board assembled together as the complete hardware stack, not only the final control board.*
+
 - `protection_board_manufacturing_rev_b/`
 - `boost_manufacturing_rev_c/`
 - `buck_manufacturing_rev_c/`

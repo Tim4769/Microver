@@ -6,7 +6,9 @@
 **Project:** Project CK
 
 ## Photo
-<img src="Photo.JPG" alt="Final Control Board Rev A board photo" width="600">
+<img src="Photo.JPG" alt="Complete Rev A hardware stack with every board assembled together" width="600">
+
+*This photo shows every board assembled together as the complete hardware stack, not only the final control board.*
 
 ## 1) Overview
 Rev A is the modular control and distribution board for the Microver 2026 final hardware stack. It mates to the `Left` / `Right` 2x10 headers used by the final compute boards, carries two integrated motor-driver channels, provides local 3.3 V regulation and rail indicators, and breaks out the rover harnesses for six drive connectors, four servos, LiDAR, Raspberry Pi UART/power, and board-level power-control signals. The board also includes mounting holes for attaching the buck, boost, OR-ing, and protection boards, plus board-to-board power pads / wire points so those auxiliary PCBs can connect back into the main control board.
